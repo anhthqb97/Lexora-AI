@@ -58,7 +58,7 @@
 | P1-T015 | Product cards (TOEIC, Speaking, etc.) | Dev | 3 | ✅ |
 | P1-T016 | PostHog analytics events schema | Dev | 3 | ✅ |
 | P1-T017 | Free vs paid tier in MongoDB | Dev | 3 | ✅ |
-| P1-T090 | API rate limiting middleware | Dev | 3 | ⬜ |
+| P1-T090 | API rate limiting middleware | Dev | 3 | ✅ |
 | P1-T091 | MongoDB indexes + migration script | Dev | 3 | ⬜ |
 | P1-T099 | Playwright E2E scaffold + fixtures | Dev + QA | 5 | ⬜ |
 | P1-T100 | GitHub Actions E2E workflow (PR gate) | DevOps | 5 | ⬜ |
