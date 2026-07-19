@@ -27,7 +27,7 @@
 
 **Overall:** Documentation is **complete and client-proposable**. Begin **Phase 0** on contract approval. Code starts after **M0** (P0-T01–P0-T22).
 
-**Repository:** [github.com/anhthqb97/Lexora-AI](https://github.com/anhthqb97/Lexora-AI) — `main` live (`6759fe8`)
+**Repository:** [github.com/anhthqb97/Lexora-AI](https://github.com/anhthqb97/Lexora-AI) — `main` live (`5725887`)
 
 ---
 

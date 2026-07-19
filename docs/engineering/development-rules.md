@@ -40,12 +40,23 @@ Pick task → Branch → Implement code → Add/update test automation → Run a
 | Bugfix | `fix/{task-id}-{short-desc}` | `fix/P1-T064-beta-speech-accuracy` |
 | Docs only | `docs/{task-id}-{short-desc}` | `docs/P0-T09-tdd-finalize` |
 
-**Base branch:** `main` (protected) · **Remote:** [github.com/anhthqb97/Lexora-AI](https://github.com/anhthqb97/Lexora-AI)
+**Base branch:** `main` · **Remote:** [github.com/anhthqb97/Lexora-AI](https://github.com/anhthqb97/Lexora-AI)
 
-**Phase 0 (docs only, before M0):** commits may go **directly to `main`** — no feature branch required.  
-**From Sprint 1 (P1-T001+):** use task branch + PR (rules below).
+**Push to `main` — allowed:**
+- **Phase 0 (until M0):** commit **and push directly to `main`** — no feature branch, no PR required
+- **Sprint 1+ (P1-T001+):** use task branch + PR; **no direct push to `main`** unless TL hotfix waiver
 
-**Flow:**
+**Phase 0 flow (direct to `main`):**
+```bash
+git checkout main
+git pull origin main
+# ... implement task ...
+git add <task-files>
+git commit -m "P0-T11: break phase 1 into estimated sprint backlog"
+git push origin main
+```
+
+**Sprint 1+ flow (task branch + PR):**
 ```bash
 git checkout main
 git pull origin main
@@ -69,9 +80,9 @@ git push -u origin p1/P1-T001-monolith-scaffold
 
 ### 2.3 Protected Rules
 
-- No force push to `main`
-- No direct commits to `main` **from Sprint 1 onward** (use PR)
-- Phase 0 documentation: direct to `main` OK until M0
+- No force push to `main` unless rewriting forbidden trailers (TL approval; use `--force-with-lease`)
+- **Phase 0:** direct commit **and push to `main` allowed** until M0
+- **Sprint 1+:** no direct commits/pushes to `main` (use PR)
 - No `--no-verify` unless TL explicitly approves
 - No secrets in git (`.env`, keys, credentials)
 

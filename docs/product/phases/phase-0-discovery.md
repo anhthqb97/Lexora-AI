@@ -23,7 +23,7 @@
 | P0-T08 | Approve workflow diagrams | `P0-T08: approve workflow overview detail diagrams` | PM + Architect | ⬜ |
 | P0-T09 | Finalize TDD platform and speaking | `P0-T09: finalize platform and speaking TDD` | Architect | ⬜ |
 | P0-T10 | Create QA test plans | `P0-T10: create platform and speaking QA test plans` | QA Lead | ⬜ |
-| P0-T11 | Break Phase 1 sprint backlog | `P0-T11: break phase 1 into estimated sprint backlog` | PM | ✅ `6759fe8` on `main` |
+| P0-T11 | Break Phase 1 sprint backlog | `P0-T11: break phase 1 into estimated sprint backlog` | PM | ✅ `70c0f21` on `main` |
 | P0-T12 | PRD walkthrough sign-off | `P0-T12: sign off speaking and platform PRDs` | PM | ⬜ |
 | P0-T13 | Sprint 1 planning | `P0-T13: complete sprint 1 planning and commitment` | Full team | ⬜ |
 | P0-T14 | Provision staging environments | `P0-T14: provision Vercel MongoDB and Redis staging` | Architect | ⬜ |
