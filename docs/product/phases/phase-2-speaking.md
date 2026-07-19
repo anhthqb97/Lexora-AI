@@ -65,7 +65,7 @@
 
 | ID | Task | Owner | Pts | Status |
 |---|---|---|---|---|
-| P1-T049 | Post-session explain-why summary (LLM) | AI Dev | 8 | ⬜ |
+| P1-T049  Post-session explain-why summary (LLM) | AI Dev | 8 | ✅ |
 | P1-T050 | Summary UI (scores, highlights) | Dev | 5 | ⬜ |
 | P1-T051 | Retry flagged phrases flow | Dev | 5 | ⬜ |
 | P1-T052 | Session end encouragement message | AI Dev | 3 | ⬜ |
