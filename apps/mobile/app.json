@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "Lexora AI",
+    "slug": "lexora-ai",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "lexora",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.lexora.ai"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#1e3a5f"
+      },
+      "package": "com.lexora.ai"
+    },
+    "plugins": ["expo-router", "expo-secure-store"],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

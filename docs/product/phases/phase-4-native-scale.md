@@ -36,7 +36,7 @@ Start Phase 4 only when:
 
 | ID | Task | Owner | Status |
 |---|---|---|---|
-| P1C-T01 | Expo project scaffold (`apps/mobile`) | Dev | ⬜ |
+| P1C-T01 | Expo project scaffold (`apps/mobile`) | Dev | ✅ |
 | P1C-T02 | Shared TypeScript types package | Dev | ⬜ |
 | P1C-T03 | Auth flow (SecureStore + JWT) | Dev | ⬜ |
 | P1C-T04 | Dashboard screen | Dev | ⬜ |
