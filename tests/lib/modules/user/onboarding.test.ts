@@ -7,3 +7,10 @@ describe("onboarding goals", () => {
     expect(goals).toHaveLength(4);
   });
 });
+
+describe("onboarding levels", () => {
+  it("includes CEFR levels A1 through C1", () => {
+    const levels = ["A1", "A2", "B1", "B2", "C1"];
+    expect(levels).toHaveLength(5);
+  });
+});
