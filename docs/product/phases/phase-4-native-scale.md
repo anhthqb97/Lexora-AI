@@ -54,8 +54,8 @@ Start Phase 4 only when:
 | ID | Task | Owner | Status |
 |---|---|---|---|
 | P1C-T13 | Extract `lib/ai` → ai-gateway-service | Architect + AI | ✅ |
-| P1C-T14 | LiteLLM proxy setup (staging) | AI Dev | ⬜ |
-| P1C-T15 | vLLM + Qwen2.5 evaluation (quality vs GPT-4o) | AI Dev | ⬜ |
+| P1C-T14 | LiteLLM proxy setup (staging) | AI Dev | ✅ |
+| P1C-T15 | vLLM + Qwen2.5 evaluation (quality vs GPT-4o) | AI Dev | ✅ |
 | P1C-T16 | Cost comparison report (OpenAI vs self-hosted) | PM + AI | ⬜ |
 | P1C-T17 | Extract `lib/speech` → speech-service (if latency issue) | Architect | ⬜ |
 | P1C-T18 | Docker Compose multi-service local dev | DevOps | ⬜ |
