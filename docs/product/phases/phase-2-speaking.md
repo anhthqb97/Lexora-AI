@@ -55,7 +55,7 @@
 | P1-T045  VN-accent tuning / validation | AI Dev | 8 | ✅ |
 | P1-T046  AI follow-up questions | AI Dev | 5 | ✅ |
 | P1-T047  Dynamic level adaptation (A1–C1) | AI Dev | 8 | ✅ |
-| P1-T048 | Exam-answer guardrail | AI Dev | 3 | ⬜ |
+| P1-T048  Exam-answer guardrail | AI Dev | 3 | ✅ |
 
 **Demo:** 5-dimension scores returned after session.
 
