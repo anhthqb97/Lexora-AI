@@ -39,7 +39,7 @@
 | ID | Task | Owner | Status |
 |---|---|---|---|
 | P2-T08 | PRD Business finalization | PM | ✅ |
-| P2-T09 | Business scenario content-map (meetings, emails) | PM + Content | ⬜ |
+| P2-T09 | Business scenario content-map (meetings, emails) | PM + Content | ✅ |
 | P2-T10 | Scenario role-play module (reuse speaking infra) | Dev | ⬜ |
 | P2-T11 | Formal tone AI tutor prompt | AI Dev | ⬜ |
 
