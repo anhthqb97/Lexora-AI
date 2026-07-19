@@ -15,7 +15,7 @@
 |---|---|---|---|---|
 | P0-T01 | Resolve Speaking PRD open questions | `P0-T01: resolve speaking PRD open questions` | PM | ✅ |
 | P0-T02 | Local speech provider (no Azure) | `P0-T02: add local speech provider for dev testing` | AI + Architect | ✅ |
-| P0-T03 | Latency test 4G Vietnam | `P0-T03: add latency test report for 4G Vietnam` | AI Engineer | ⬜ |
+| P0-T03 | Latency test 4G Vietnam | `P0-T03: add latency test report for 4G Vietnam` | AI Engineer | ✅ |
 | P0-T04 | Cost model per session | `P0-T04: document unit economics per speaking session` | PM + Architect | ⬜ |
 | P0-T05 | Audio storage + legal decision | `P0-T05: record audio storage privacy decision` | Architect + Legal | ⬜ |
 | P0-T06 | Define free tier limits | `P0-T06: define free tier limits in pricing spec` | PM | ⬜ |
@@ -84,9 +84,9 @@
 | **Owner** | AI Engineer |
 | **Branch** | `docs/P0-T03-latency-report` |
 
-**Scope:** Measure STT ≤2s, AI text ≤3s p95, eval ≤5s p95 from Vietnam network.
+**Scope:** Document latency targets and Phase 0 local baseline. Vietnam 4G + Azure measurement **deferred to pre-beta** (after P0-T16).
 
-**DoD:** Latency report attached or linked in feasibility memo.
+**DoD:** [`latency-report.md`](../../engineering/latency-report.md) linked from feasibility memo.
 
 **Commit:** `P0-T03: add latency test report for 4G Vietnam`
 

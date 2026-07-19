@@ -142,3 +142,4 @@ Acceptable if LTV:CAC ≥6:1 per brand targets.
 |---|---|
 | PRD Speaking | [`../product/speaking/prd-speaking.md`](../product/speaking/prd-speaking.md) |
 | TDD Speaking | [`tdd-speaking.md`](tdd-speaking.md) |
+| Latency report | [`latency-report.md`](latency-report.md) |
