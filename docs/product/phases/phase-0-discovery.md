@@ -27,7 +27,7 @@
 | P0-T12 | PRD walkthrough sign-off | `P0-T12: sign off speaking and platform PRDs` | PM | ✅ |
 | P0-T13 | Sprint 1 planning | `P0-T13: complete sprint 1 planning and commitment` | Full team | ✅ |
 | P0-T14 | Provision staging environments | `P0-T14: provision Vercel MongoDB and Redis staging` | Architect | ⬜ |
-| P0-T15 | Env vars template + secrets policy | `P0-T15: document env vars and secrets policy` | Architect | ⬜ |
+| P0-T15 | Env vars template + secrets policy | `P0-T15: document env vars and secrets policy` | Architect | ✅ |
 | P0-T16 | Provision Azure Speech resource | `P0-T16: provision Azure Speech Southeast Asia` | Architect | ⬜ |
 | P0-T17 | Provision OpenAI org + billing alerts | `P0-T17: provision OpenAI API keys and billing alerts` | Architect + PM | ⬜ |
 | P0-T18 | Provision email provider (auth) | `P0-T18: provision email provider for auth emails` | Architect | ⬜ |
