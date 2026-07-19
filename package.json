@@ -17,7 +17,8 @@
     "local:check": "bash scripts/local-check.sh",
     "local:wait": "bash scripts/wait-for-services.sh",
     "local:setup": "npm run docker:up && npm run local:wait && npm run local:check",
-    "ollama:pull": "bash scripts/ollama-pull-model.sh"
+    "ollama:pull": "bash scripts/ollama-pull-model.sh",
+    "db:create-indexes": "npx tsx scripts/create-indexes.ts"
   },
   "dependencies": {
     "@sentry/nextjs": "^10.66.0",
