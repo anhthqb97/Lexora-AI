@@ -21,23 +21,23 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ### Local services
 
-| Service | URL |
-|---|---|
+| Service | URL                                |
+| ------- | ---------------------------------- |
 | MongoDB | `mongodb://localhost:27017/lexora` |
-| Redis | `redis://localhost:6379` |
-| Ollama | `http://localhost:11434` |
-| Speech | `SPEECH_PROVIDER=mock` (no Azure) |
+| Redis   | `redis://localhost:6379`           |
+| Ollama  | `http://localhost:11434`           |
+| Speech  | `SPEECH_PROVIDER=mock` (no Azure)  |
 
 ## Scripts
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Development server |
-| `npm run build` | Production build |
-| `npm run lint` | ESLint |
-| `npm run typecheck` | TypeScript check |
+| Command               | Description                      |
+| --------------------- | -------------------------------- |
+| `npm run dev`         | Development server               |
+| `npm run build`       | Production build                 |
+| `npm run lint`        | ESLint                           |
+| `npm run typecheck`   | TypeScript check                 |
 | `npm run local:setup` | Start Docker stack + health wait |
-| `npm run local:check` | Verify MongoDB, Redis, Ollama |
+| `npm run local:check` | Verify MongoDB, Redis, Ollama    |
 
 ## Project structure
 
