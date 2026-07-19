@@ -1,5 +1,12 @@
 import { connectDatabase } from "@/lib/db/mongoose";
-import type { CreateSessionInput, ProcessTurnInput, SpeakingProgress, SpeakingSessionDTO, SpeakingSummaryDTO, TurnResult } from "./types";
+import type {
+  CreateSessionInput,
+  ProcessTurnInput,
+  SpeakingProgress,
+  SpeakingSessionDTO,
+  SpeakingSummaryDTO,
+  TurnResult,
+} from "./types";
 
 export class SpeakingError extends Error {
   constructor(

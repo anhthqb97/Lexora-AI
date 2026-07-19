@@ -82,7 +82,11 @@ export default function SubscriptionPage() {
               <Button disabled={!!loading} onClick={() => handleCheckout("momo")}>
                 {loading === "momo" ? "Đang chuyển..." : "Thanh toán MoMo"}
               </Button>
-              <Button variant="outline" disabled={!!loading} onClick={() => handleCheckout("vnpay")}>
+              <Button
+                variant="outline"
+                disabled={!!loading}
+                onClick={() => handleCheckout("vnpay")}
+              >
                 {loading === "vnpay" ? "Đang chuyển..." : "Thanh toán VNPay"}
               </Button>
               <Button variant="outline" disabled={!!loading} onClick={() => handleCheckout("card")}>

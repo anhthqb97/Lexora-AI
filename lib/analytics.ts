@@ -51,10 +51,7 @@ export async function captureEvent(
 }
 
 /** Client-side helper — call from browser components. */
-export function trackClientEvent(
-  event: AnalyticsEvent,
-  properties?: AnalyticsProperties,
-): void {
+export function trackClientEvent(event: AnalyticsEvent, properties?: AnalyticsProperties): void {
   if (typeof window === "undefined") return;
 
   if (!POSTHOG_KEY) {

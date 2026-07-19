@@ -39,7 +39,10 @@ export async function POST(req: Request) {
     );
   } catch (error) {
     if (error instanceof OnboardingError) {
-      return NextResponse.json({ error: { code: error.code, message: error.message } }, { status: 422 });
+      return NextResponse.json(
+        { error: { code: error.code, message: error.message } },
+        { status: 422 },
+      );
     }
     throw error;
   }

@@ -6,9 +6,7 @@ describe("OpenAI client", () => {
     const prev = process.env.OPENAI_API_KEY;
     delete process.env.OPENAI_API_KEY;
 
-    const result = await chatCompletionOrStub([
-      { role: "user", content: "Hello" },
-    ]);
+    const result = await chatCompletionOrStub([{ role: "user", content: "Hello" }]);
 
     expect(result.model).toBe("stub");
     expect(result.content).toContain("Hello");

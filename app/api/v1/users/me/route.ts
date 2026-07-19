@@ -12,7 +12,10 @@ export async function GET() {
     return ok({ data: profile });
   } catch (error) {
     if (error instanceof UserError) {
-      return NextResponse.json({ error: { code: error.code, message: error.message } }, { status: 404 });
+      return NextResponse.json(
+        { error: { code: error.code, message: error.message } },
+        { status: 404 },
+      );
     }
     throw error;
   }
@@ -32,7 +35,10 @@ export async function PATCH(req: Request) {
     return ok({ data: profile });
   } catch (error) {
     if (error instanceof UserError) {
-      return NextResponse.json({ error: { code: error.code, message: error.message } }, { status: 404 });
+      return NextResponse.json(
+        { error: { code: error.code, message: error.message } },
+        { status: 404 },
+      );
     }
     throw error;
   }
@@ -47,7 +53,10 @@ export async function DELETE() {
     return ok({ deleted: true });
   } catch (error) {
     if (error instanceof UserError) {
-      return NextResponse.json({ error: { code: error.code, message: error.message } }, { status: 404 });
+      return NextResponse.json(
+        { error: { code: error.code, message: error.message } },
+        { status: 404 },
+      );
     }
     throw error;
   }

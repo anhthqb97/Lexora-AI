@@ -10,11 +10,7 @@ export async function POST(req: Request) {
   } catch (error) {
     if (error instanceof OtpError) {
       const status =
-        error.code === "AUTH_INVALID"
-          ? 401
-          : error.code === "VALIDATION_ERROR"
-            ? 422
-            : 400;
+        error.code === "AUTH_INVALID" ? 401 : error.code === "VALIDATION_ERROR" ? 422 : 400;
       return NextResponse.json({ error: { code: error.code, message: error.message } }, { status });
     }
     throw error;

@@ -21,14 +21,12 @@ function generateOrderId(): string {
 }
 
 /** MoMo sandbox payment — returns redirect URL for test environment. */
-export function createMoMoCheckout(
-  userId: string,
-  amountVnd: number,
-): CheckoutResult {
+export function createMoMoCheckout(userId: string, amountVnd: number): CheckoutResult {
   const orderId = generateOrderId();
   const partnerCode = process.env.MOMO_PARTNER_CODE ?? "MOMO_SANDBOX";
   const accessKey = process.env.MOMO_ACCESS_KEY ?? "sandbox-key";
-  const redirectUrl = process.env.MOMO_REDIRECT_URL ?? "http://localhost:3000/settings/subscription";
+  const redirectUrl =
+    process.env.MOMO_REDIRECT_URL ?? "http://localhost:3000/settings/subscription";
   const ipnUrl = process.env.MOMO_IPN_URL ?? "http://localhost:3000/api/v1/billing/webhook/momo";
 
   const requestId = orderId;
@@ -41,7 +39,8 @@ export function createMoMoCheckout(
     .update(rawSignature)
     .digest("hex");
 
-  const sandboxUrl = process.env.MOMO_SANDBOX_URL ?? "https://test-payment.momo.vn/v2/gateway/api/create";
+  const sandboxUrl =
+    process.env.MOMO_SANDBOX_URL ?? "https://test-payment.momo.vn/v2/gateway/api/create";
   const params = new URLSearchParams({
     partnerCode,
     accessKey,
@@ -63,10 +62,7 @@ export function createMoMoCheckout(
   };
 }
 
-export function verifyMoMoSignature(
-  params: Record<string, string>,
-  signature: string,
-): boolean {
+export function verifyMoMoSignature(params: Record<string, string>, signature: string): boolean {
   const accessKey = process.env.MOMO_ACCESS_KEY ?? "sandbox-key";
   const rawSignature = `accessKey=${accessKey}&amount=${params.amount}&extraData=${params.extraData ?? ""}&message=${params.message ?? ""}&orderId=${params.orderId}&orderInfo=${params.orderInfo ?? ""}&orderType=${params.orderType ?? ""}&partnerCode=${params.partnerCode}&payType=${params.payType ?? ""}&requestId=${params.requestId}&responseTime=${params.responseTime ?? ""}&resultCode=${params.resultCode}&transId=${params.transId ?? ""}`;
   const expected = crypto

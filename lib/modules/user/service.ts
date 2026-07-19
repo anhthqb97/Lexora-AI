@@ -23,10 +23,7 @@ async function ensureProfile(userId: string) {
 
 export async function getProfile(userId: string): Promise<UserProfileDto> {
   await connectDatabase();
-  const [user, profile] = await Promise.all([
-    User.findById(userId),
-    ensureProfile(userId),
-  ]);
+  const [user, profile] = await Promise.all([User.findById(userId), ensureProfile(userId)]);
 
   if (!user || user.status !== "active") {
     throw new UserError("NOT_FOUND", "User not found");

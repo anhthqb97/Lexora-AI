@@ -57,7 +57,11 @@ export default function SettingsPage() {
           <form onSubmit={handleSave} className="space-y-4">
             <div>
               <label className="text-sm text-gray-600">Tên hiển thị</label>
-              <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="Tên của bạn" />
+              <Input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Tên của bạn"
+              />
             </div>
             <div>
               <label className="text-sm text-gray-600">Email</label>

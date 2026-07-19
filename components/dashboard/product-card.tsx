@@ -8,13 +8,7 @@ const ACCENT_CLASSES = {
   blue: "border-l-lexora-blue",
 };
 
-export function ProductCard({
-  title,
-  description,
-  href,
-  badge,
-  accent = "teal",
-}: Product) {
+export function ProductCard({ title, description, href, badge, accent = "teal" }: Product) {
   return (
     <Link href={href} className="block transition-transform hover:scale-[1.02]">
       <Card className={`h-full border-l-4 ${ACCENT_CLASSES[accent]}`}>

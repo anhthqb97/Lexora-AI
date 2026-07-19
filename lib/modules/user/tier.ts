@@ -45,7 +45,10 @@ export async function setUserTier(userId: string, tier: UserTier): Promise<UserT
   return user.tier;
 }
 
-export function canAccessFeature(tier: UserTier, feature: "speaking" | "toeic_mock" | "business"): boolean {
+export function canAccessFeature(
+  tier: UserTier,
+  feature: "speaking" | "toeic_mock" | "business",
+): boolean {
   if (tier === "paid") return true;
   if (feature === "business") return false;
   return true; // free tier allowed with quota checks elsewhere
