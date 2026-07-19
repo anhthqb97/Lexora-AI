@@ -1,5 +1,9 @@
-// Auth module — → future auth-service (Sprint 1)
+import type { AuthTokens, RegisterInput } from "./types";
 
-export async function registerWithEmail(_email: string, _password: string) {
-  throw new Error("Not implemented — Sprint 1");
+export async function registerWithEmail(_input: RegisterInput): Promise<AuthTokens> {
+  throw new Error("Not implemented — P1-T006");
+}
+
+export async function loginWithEmail(_email: string, _password: string): Promise<AuthTokens> {
+  throw new Error("Not implemented — P1-T006");
 }
