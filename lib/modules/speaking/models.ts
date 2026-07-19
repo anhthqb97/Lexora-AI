@@ -11,6 +11,7 @@ const SpeakingSessionSchema = new Schema(
     durationMinutes: { type: Number, enum: SESSION_DURATIONS, required: true },
     status: { type: String, enum: SESSION_STATUSES, default: "created" },
     vietnameseHelp: { type: Boolean, default: false },
+    currentLevel: { type: String, enum: ["A1", "A2", "B1", "B2", "C1"] },
     startedAt: { type: Date },
     endedAt: { type: Date },
     expiresAt: { type: Date },
@@ -66,6 +67,14 @@ const SpeakingSummarySchema = new Schema(
     ],
     topFocusAreas: [String],
     encouragement: { type: String, required: true },
+    explainWhy: { type: String },
+    flaggedPhrases: [
+      {
+        original: String,
+        corrected: String,
+        reason: String,
+      },
+    ],
   },
   { timestamps: { createdAt: true, updatedAt: false } },
 );
@@ -96,6 +105,7 @@ export function toSessionDTO(doc: SessionDoc): SpeakingSession {
     durationMinutes: doc.durationMinutes as SpeakingSession["durationMinutes"],
     status: doc.status as SpeakingSession["status"],
     vietnameseHelp: doc.vietnameseHelp ?? false,
+    currentLevel: doc.currentLevel ?? undefined,
     startedAt: doc.startedAt ?? undefined,
     endedAt: doc.endedAt ?? undefined,
     expiresAt: doc.expiresAt ?? undefined,

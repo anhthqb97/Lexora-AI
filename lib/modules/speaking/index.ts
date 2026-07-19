@@ -10,9 +10,15 @@ export {
   SpeakingError,
   createSession,
   getSession,
+  resumeSession,
   listSessions,
   processTurn,
   endSession,
   getSummary,
   getProgress,
+  getScoreTrends,
+  listTopics,
+  listScenarios,
 } from "./service";
+export { hasVoiceConsent, grantVoiceConsent } from "./consent";
+export { getWeeklyLimitStatus, SpeakingLimitError } from "./limits";

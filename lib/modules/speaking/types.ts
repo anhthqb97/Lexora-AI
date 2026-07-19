@@ -17,6 +17,7 @@ export type SpeakingSession = {
   durationMinutes: SessionDuration;
   status: SessionStatus;
   vietnameseHelp: boolean;
+  currentLevel?: string;
   startedAt?: Date;
   endedAt?: Date;
   expiresAt?: Date;
@@ -44,6 +45,8 @@ export type SpeakingSummary = {
   improvements: Array<{ original: string; corrected: string; reason: string }>;
   topFocusAreas: string[];
   encouragement: string;
+  explainWhy?: string;
+  flaggedPhrases?: Array<{ original: string; corrected: string; reason: string }>;
   createdAt: Date;
 };
 
@@ -67,12 +70,36 @@ export type TurnResult = {
   transcript: string;
   aiResponse: string;
   scores?: TurnScores;
+  inlineCorrection?: { original: string; corrected: string; reason: string };
+  vietnameseHelp?: string;
+};
+
+export type SessionWithTurns = SpeakingSession & {
+  turns: SpeakingTurn[];
+  greeting?: string;
+  currentLevel?: string;
 };
 
 export type SpeakingProgress = {
   sessionCount: number;
   totalPracticeMinutes: number;
   averageConfidence?: number;
+  weeklyUsed?: number;
+  weeklyLimit?: number;
+};
+
+export type ScoreTrendPoint = {
+  date: string;
+  confidence: number;
+  pronunciation: number;
+  fluency: number;
+  grammar: number;
+  vocabulary: number;
+};
+
+export type SpeakingTrends = {
+  days: number;
+  points: ScoreTrendPoint[];
 };
 
 export type SpeakingSessionDTO = SpeakingSession;
