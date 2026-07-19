@@ -59,7 +59,7 @@ Start Phase 4 only when:
 | P1C-T16 | Cost comparison report (OpenAI vs self-hosted) | PM + AI | ✅ |
 | P1C-T17 | Extract `lib/speech` → speech-service (if latency issue) | Architect | ✅ |
 | P1C-T18 | Docker Compose multi-service local dev | DevOps | ✅ |
-| P1C-T19 | API Gateway routing layer (optional Kong/BFF) | Architect | ⬜ |
+| P1C-T19 | API Gateway routing layer (optional Kong/BFF) | Architect | ✅ |
 | P1C-T20 | Daily speaking challenge feature (P1) | Dev | ⬜ |
 | P1C-T21 | Referral program v0.1 | PM + Dev | ⬜ |
 | P1C-T22 | Phase 5 backlog planning | PM | ⬜ |
