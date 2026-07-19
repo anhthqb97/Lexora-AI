@@ -35,7 +35,7 @@
 | P1-T034  Live session UI (mic, waveform, timer) | Dev | 8 | ✅ |
 | P1-T035  AI greeting + opening question | AI Dev | 5 | ✅ |
 | P1-T036  Speak → transcribe → AI respond loop | AI Dev | 13 | ✅ |
-| P1-T037 | Topic library (10 topics) — content-map | PM + Dev | 3 | ⬜ |
+| P1-T037  Topic library (10 topics) — content-map | PM + Dev | 3 | ✅ |
 | P1-T038 | Scenario library (5 scenarios) | PM + Dev | 3 | ⬜ |
 
 **Demo:** Full conversation loop in staging.
