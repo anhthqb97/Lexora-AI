@@ -57,7 +57,7 @@ Start Phase 4 only when:
 | P1C-T14 | LiteLLM proxy setup (staging) | AI Dev | ✅ |
 | P1C-T15 | vLLM + Qwen2.5 evaluation (quality vs GPT-4o) | AI Dev | ✅ |
 | P1C-T16 | Cost comparison report (OpenAI vs self-hosted) | PM + AI | ✅ |
-| P1C-T17 | Extract `lib/speech` → speech-service (if latency issue) | Architect | ⬜ |
+| P1C-T17 | Extract `lib/speech` → speech-service (if latency issue) | Architect | ✅ |
 | P1C-T18 | Docker Compose multi-service local dev | DevOps | ⬜ |
 | P1C-T19 | API Gateway routing layer (optional Kong/BFF) | Architect | ⬜ |
 | P1C-T20 | Daily speaking challenge feature (P1) | Dev | ⬜ |
