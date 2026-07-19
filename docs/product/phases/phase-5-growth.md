@@ -26,7 +26,7 @@
 
 | ID | Task | Owner | Status |
 |---|---|---|---|
-| P2-T01 | PRD Writing finalization | PM | ⬜ |
+| P2-T01 | PRD Writing finalization | PM | ✅ |
 | P2-T02 | `lib/modules/writing` — editor + submission | Dev | ⬜ |
 | P2-T03 | Grammar correction + explain-why (LLM) | AI Dev | ⬜ |
 | P2-T04 | Writing evaluation scores | AI Dev | ⬜ |
