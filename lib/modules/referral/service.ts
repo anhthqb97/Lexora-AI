@@ -1,0 +1,69 @@
+import mongoose, { Schema, model, models } from "mongoose";
+import { connectDatabase } from "@/lib/db/mongoose";
+import crypto from "crypto";
+
+const ReferralCodeSchema = new Schema(
+  {
+    userId: { type: Schema.Types.ObjectId, required: true, unique: true, index: true },
+    code: { type: String, required: true, unique: true, index: true },
+  },
+  { timestamps: true },
+);
+
+const ReferralSignupSchema = new Schema(
+  {
+    referrerUserId: { type: Schema.Types.ObjectId, required: true, index: true },
+    referredUserId: { type: Schema.Types.ObjectId, required: true, unique: true },
+    code: { type: String, required: true },
+  },
+  { timestamps: true },
+);
+
+export const ReferralCodeModel = models.ReferralCode ?? model("ReferralCode", ReferralCodeSchema);
+export const ReferralSignupModel =
+  models.ReferralSignup ?? model("ReferralSignup", ReferralSignupSchema);
+
+function generateCode(): string {
+  return crypto.randomBytes(4).toString("hex").toUpperCase();
+}
+
+export type ReferralStats = {
+  code: string;
+  inviteUrl: string;
+  signupCount: number;
+};
+
+export async function getOrCreateReferralCode(userId: string): Promise<ReferralStats> {
+  await connectDatabase();
+  let doc = await ReferralCodeModel.findOne({ userId });
+  if (!doc) {
+    let code = generateCode();
+    for (let i = 0; i < 5; i++) {
+      const exists = await ReferralCodeModel.findOne({ code });
+      if (!exists) break;
+      code = generateCode();
+    }
+    doc = await ReferralCodeModel.create({ userId, code });
+  }
+  const signupCount = await ReferralSignupModel.countDocuments({ referrerUserId: userId });
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+  return {
+    code: doc.code,
+    inviteUrl: `${baseUrl}/register?ref=${doc.code}`,
+    signupCount,
+  };
+}
+
+export async function recordReferralSignup(referredUserId: string, code: string): Promise<boolean> {
+  await connectDatabase();
+  const referral = await ReferralCodeModel.findOne({ code: code.toUpperCase() });
+  if (!referral || referral.userId.toString() === referredUserId) return false;
+  const existing = await ReferralSignupModel.findOne({ referredUserId });
+  if (existing) return false;
+  await ReferralSignupModel.create({
+    referrerUserId: referral.userId,
+    referredUserId,
+    code: referral.code,
+  });
+  return true;
+}

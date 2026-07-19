@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { ok } from "@/lib/api/response";
 import { AuthError, registerWithEmail } from "@/lib/modules/auth/service";
+import { recordReferralSignup } from "@/lib/modules/referral";
 
 export async function POST(req: Request) {
   try {
@@ -9,6 +10,9 @@ export async function POST(req: Request) {
       email: body.email ?? "",
       password: body.password ?? "",
     });
+    if (body.ref) {
+      await recordReferralSignup(result.userId, body.ref);
+    }
     return ok({ userId: result.userId }, 201);
   } catch (error) {
     if (error instanceof AuthError) {

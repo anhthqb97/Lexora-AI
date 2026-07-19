@@ -13,6 +13,47 @@ type Profile = {
   tier: string;
 };
 
+function ReferralSection() {
+  const [inviteUrl, setInviteUrl] = useState<string | null>(null);
+  const [signupCount, setSignupCount] = useState(0);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/v1/referrals")
+      .then((r) => r.json())
+      .then((res) => {
+        if (res.data) {
+          setInviteUrl(res.data.inviteUrl);
+          setSignupCount(res.data.signupCount ?? 0);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  if (!inviteUrl) return <p className="text-sm text-gray-500">Đang tải...</p>;
+
+  return (
+    <>
+      <p className="text-sm text-gray-600">
+        Đã mời: <strong>{signupCount}</strong> người
+      </p>
+      <Input value={inviteUrl} readOnly className="text-xs" />
+      <Button
+        type="button"
+        variant="outline"
+        size="sm"
+        onClick={() => {
+          void navigator.clipboard.writeText(inviteUrl);
+          setCopied(true);
+          setTimeout(() => setCopied(false), 2000);
+        }}
+      >
+        {copied ? "Đã sao chép!" : "Sao chép link"}
+      </Button>
+    </>
+  );
+}
+
 export default function SettingsPage() {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [name, setName] = useState("");
@@ -81,6 +122,15 @@ export default function SettingsPage() {
             <Button type="submit">Lưu thay đổi</Button>
             {saved && <p className="text-sm text-lexora-teal">Đã lưu!</p>}
           </form>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Giới thiệu bạn bè</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          <ReferralSection />
         </CardContent>
       </Card>
 
