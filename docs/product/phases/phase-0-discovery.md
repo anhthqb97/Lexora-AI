@@ -28,7 +28,7 @@
 | P0-T13 | Sprint 1 planning | `P0-T13: complete sprint 1 planning and commitment` | Full team | ✅ |
 | P0-T14 | Provision staging environments | `P0-T14: provision Vercel MongoDB and Redis staging` | Architect | ✅ |
 | P0-T15 | Env vars template + secrets policy | `P0-T15: document env vars and secrets policy` | Architect | ✅ |
-| P0-T16 | Provision Azure Speech resource | `P0-T16: provision Azure Speech Southeast Asia` | Architect | ⬜ |
+| P0-T16 | Provision Azure Speech resource | `P0-T16: provision Azure Speech Southeast Asia` | Architect | ✅ |
 | P0-T17 | Provision OpenAI org + billing alerts | `P0-T17: provision OpenAI API keys and billing alerts` | Architect + PM | ⬜ |
 | P0-T18 | Provision email provider (auth) | `P0-T18: provision email provider for auth emails` | Architect | ⬜ |
 | P0-T19 | Provision SMS OTP provider (+84) | `P0-T19: provision SMS OTP provider for Vietnam` | Architect | ⬜ |
@@ -228,7 +228,7 @@
 
 **Scope:** Azure Speech resource in **Southeast Asia** — **before Sprint 3 staging** (not Phase 0). STT + pronunciation assessment; keys in staging vault. Run 100-sample VN spike **before closed beta**.
 
-**DoD:** Test API call returns transcript from sample audio; VN spike scheduled.
+**DoD:** [`azure-speech-provisioning.md`](../../engineering/azure-speech-provisioning.md) — resource setup, REST validation, VN spike scheduled pre-beta.
 
 **Commit:** `P0-T16: provision Azure Speech Southeast Asia`
 
