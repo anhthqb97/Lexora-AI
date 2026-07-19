@@ -46,7 +46,7 @@
 
 | ID | Task | Owner | Pts | Status |
 |---|---|---|---|---|
-| P1-T039 | Pronunciation scoring per turn | AI Dev | 8 | ⬜ |
+| P1-T039  Pronunciation scoring per turn | AI Dev | 8 | ✅ |
 | P1-T040 | Fluency scoring (pace, fillers) | AI Dev | 5 | ⬜ |
 | P1-T041 | Grammar scoring | AI Dev | 5 | ⬜ |
 | P1-T042 | Vocabulary scoring | AI Dev | 5 | ⬜ |
