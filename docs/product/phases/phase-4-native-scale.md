@@ -62,7 +62,7 @@ Start Phase 4 only when:
 | P1C-T19 | API Gateway routing layer (optional Kong/BFF) | Architect | ✅ |
 | P1C-T20 | Daily speaking challenge feature (P1) | Dev | ✅ |
 | P1C-T21 | Referral program v0.1 | PM + Dev | ✅ |
-| P1C-T22 | Phase 5 backlog planning | PM | ⬜ |
+| P1C-T22 | Phase 5 backlog planning | PM | ✅ |
 
 ---
 
