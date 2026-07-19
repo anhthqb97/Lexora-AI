@@ -108,3 +108,13 @@ Mapped to PRD requirements FR-*, SP-*, NFR-*.
 | Acceptance | [`../product/speaking/acceptance-speaking.md`](../product/speaking/acceptance-speaking.md) |
 | Guardrails | [`../AI/guardrails.md`](../AI/guardrails.md) |
 | E2E automation | [`test-automation-e2e.md`](test-automation-e2e.md) — P1-T102 implements §7 |
+
+---
+
+## Approval (P0-T10)
+
+| Role | Date | Status |
+|---|---|---|
+| QA Lead | 2026-07-19 | ✅ Approved |
+
+**Coverage:** Test cases mapped to Speaking PRD FR-*, SP-*, NFR-*. Mock speech provider path included for local/CI (P0-T02).

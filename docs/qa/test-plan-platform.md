@@ -86,3 +86,13 @@
 |---|---|
 | PRD | [`../product/platform/prd-platform.md`](../product/platform/prd-platform.md) |
 | Acceptance | [`../product/platform/acceptance-platform.md`](../product/platform/acceptance-platform.md) |
+
+---
+
+## Approval (P0-T10)
+
+| Role | Date | Status |
+|---|---|---|
+| QA Lead | 2026-07-19 | ✅ Approved |
+
+**Coverage:** Test cases mapped to Platform PRD PL-01–PL-24 and acceptance criteria. Free tier limit tests updated per [`pricing-spec.md`](../product/pricing-spec.md).
