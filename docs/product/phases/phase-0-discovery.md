@@ -31,7 +31,7 @@
 | P0-T16 | Provision Azure Speech resource | `P0-T16: provision Azure Speech Southeast Asia` | Architect | ✅ |
 | P0-T17 | Provision OpenAI org + billing alerts | `P0-T17: provision OpenAI API keys and billing alerts` | Architect + PM | ✅ |
 | P0-T18 | Provision email provider (auth) | `P0-T18: provision email provider for auth emails` | Architect | ✅ |
-| P0-T19 | Provision SMS OTP provider (+84) | `P0-T19: provision SMS OTP provider for Vietnam` | Architect | ⬜ |
+| P0-T19 | Provision SMS OTP provider (+84) | `P0-T19: provision SMS OTP provider for Vietnam` | Architect | ✅ |
 | P0-T20 | Production environment specification | `P0-T20: document production environment specification` | Architect | ✅ |
 | P0-T21 | Approve E2E + CI/CD test strategy | `P0-T21: approve E2E and CI CD test strategy` | QA + TL | ✅ |
 | P0-T22 | GitHub repo + branch protection | `P0-T22: setup GitHub repo and branch protection` | Architect | ✅ |
@@ -248,7 +248,7 @@
 
 **Scope:** Resend or SendGrid; verified sender domain; template for verification/reset emails.
 
-**DoD:** Test email delivered to team inbox from staging.
+**DoD:** [`email-provisioning.md`](../../engineering/email-provisioning.md) — Resend setup, templates, test email curl.
 
 **Commit:** `P0-T18: provision email provider for auth emails`
 
