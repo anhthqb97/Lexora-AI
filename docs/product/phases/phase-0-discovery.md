@@ -13,7 +13,7 @@
 
 | ID | Task | Commit message | Owner | Status |
 |---|---|---|---|---|
-| P0-T01 | Resolve Speaking PRD open questions | `P0-T01: resolve speaking PRD open questions` | PM | 🔄 baseline in PRD v1.0; commit + P0-T12 sign-off pending |
+| P0-T01 | Resolve Speaking PRD open questions | `P0-T01: resolve speaking PRD open questions` | PM | ✅ |
 | P0-T02 | Speech engine spike | `P0-T02: complete Azure speech engine spike` | AI + Architect | ⬜ |
 | P0-T03 | Latency test 4G Vietnam | `P0-T03: add latency test report for 4G Vietnam` | AI Engineer | ⬜ |
 | P0-T04 | Cost model per session | `P0-T04: document unit economics per speaking session` | PM + Architect | ⬜ |

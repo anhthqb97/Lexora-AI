@@ -2,7 +2,7 @@
 
 **Product:** Lexora Speaking
 **Version:** 1.0
-**Status:** Approved baseline (pending M0 formal sign-off)
+**Status:** Approved — product decisions locked (P0-T01, 2026-07-19)
 **Owner:** Product Team
 **Last Updated:** 2026-07-19
 
@@ -297,9 +297,19 @@ Decisions below are approved by PO/PM/TL for MVP. Formal sign-off at M0 (P0-T12)
 | 4 | Audio storage | Transcripts + scores only; delete raw audio after 24h | ADR-002; PDPD |
 | 5 | TOEIC speaking in Speaking app | P1 only: picture description + respond to questions | content-map-speaking.md |
 
-## 10.1 Open Questions
+## 10.1 Resolved Questions (P0-T01)
 
-None blocking MVP. Spike results (P0-T02) may adjust Azure tuning parameters only.
+All five MVP decisions are locked in §10 above. No open product questions remain for Speaking MVP.
+
+| # | Question | Resolution |
+|---|---|---|
+| 1 | Free tier limits | 3 sessions/week; 1 TOEIC mock/month (platform-wide) |
+| 2 | Vietnamese help default | ON A1–A2, OFF B1+ |
+| 3 | Speech engine | Azure Speech Services — validated in P0-T02 spike |
+| 4 | Audio retention | Transcripts + scores only; raw audio deleted after 24h |
+| 5 | TOEIC speaking scope | P1: picture description + Q&A only (not full TOEIC speaking exam) |
+
+Spike results (P0-T02) may adjust Azure tuning parameters only — not product scope.
 
 ---
 
