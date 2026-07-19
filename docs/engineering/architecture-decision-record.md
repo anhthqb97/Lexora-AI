@@ -220,3 +220,42 @@ Deploy Next.js monolith to **Vercel**. MongoDB Atlas + Upstash Redis as managed 
 - Reduces doc drift and duplicate plans
 - All developers start from `docs/README.md`
 - Feature plans (`platform/plan-platform.md`) are supporting; phase plans are canonical for tasks
+
+---
+
+## ADR-009: Audio Storage & Privacy (Speaking)
+
+**Status:** Approved (P0-T05, 2026-07-19)  
+**Deciders:** Architect, PM, Legal review pending at launch
+
+### Context
+
+Speaking sessions capture learner voice audio. Vietnam **Personal Data Protection Decree (PDPD)** requires lawful basis, consent, minimization, and defined retention. P0-T01 locked product intent; this ADR makes it binding for engineering.
+
+### Decision
+
+| Data type | Store? | Retention | Location |
+|---|---|---|---|
+| Raw audio (upload) | Yes — transient only | **Delete within 24 hours** after STT + pronunciation scoring | Encrypted object storage (staging/prod); not persisted locally in CI |
+| Transcript text | Yes | Session lifetime + 12 months (learner progress) | MongoDB `speaking_turns` |
+| Pronunciation scores | Yes | Same as transcript | MongoDB |
+| Voice biometrics / voiceprint | **No** | — | Not collected |
+
+**Consent:** Explicit opt-in modal before first speaking session (FR NFR-08). Consent record stored with timestamp and policy version.
+
+**Third parties:** Azure Speech processes audio in transit; no long-term storage by Lexora beyond 24h rule. OpenAI receives **text transcripts only**, not raw audio.
+
+**Learner rights:** Export and delete via account settings (platform PRD); deletion cascades transcripts and scores; raw audio already purged.
+
+### Rationale
+
+- Minimizes PDPD exposure and breach impact
+- Transcripts sufficient for explain-why feedback and progress tracking
+- Aligns with brand principle: privacy by design (ADR principles §)
+
+### Consequences
+
+**Positive:** Lower storage cost; simpler DPA with Azure (processing only)  
+**Negative:** Cannot replay original audio for dispute resolution — mitigated by storing transcript + scores + turn metadata
+
+**Sign-off:** Architect ✅ · Legal ⏳ (formal review before public beta, Sprint 7)
