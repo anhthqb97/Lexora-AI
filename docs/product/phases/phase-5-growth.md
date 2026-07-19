@@ -49,7 +49,7 @@
 |---|---|---|---|
 | P2-T12 | PRD Interview finalization | PM | ✅ |
 | P2-T13 | Mock interview flow (timed Q&A) | Dev | ✅ |
-| P2-T14 | Industry question banks (IT, hospitality) | Content | ⬜ |
+| P2-T14 | Industry question banks (IT, hospitality) | Content | ✅ |
 
 ### TOEIC / Exam Expansion (Month 2–4)
 
