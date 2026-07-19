@@ -16,10 +16,17 @@ export const PRODUCTS: Product[] = [
   },
   {
     title: "TOEIC Prep",
-    description: "Luyện thi TOEIC với bài học thích ứng và thi thử",
+    description: "Luyện thi TOEIC với bài họn thích ứng và thi thử",
     href: "/toeic",
     badge: "MVP",
     accent: "orange",
+  },
+  {
+    title: "Lexora Writing",
+    description: "Luyện viết với sửa lỗi ngữ pháp và giải thích AI",
+    href: "/writing",
+    badge: "Mới",
+    accent: "blue",
   },
   {
     title: "Business English",
