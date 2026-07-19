@@ -46,8 +46,8 @@ Start Phase 4 only when:
 | P1C-T08 | TOEIC home + mock exam (read-only MVP) | Dev | ✅ |
 | P1C-T09 | Push notifications setup (Expo) | Dev | ✅ |
 | P1C-T10 | EAS Build pipeline (iOS + Android) | Dev | ✅ |
-| P1C-T11 | App Store + Google Play submission | PM | ⬜ |
-| P1C-T12 | Native app QA test plan | QA | ⬜ |
+| P1C-T11 | App Store + Google Play submission | PM | ✅ |
+| P1C-T12 | Native app QA test plan | QA | ✅ |
 
 ### Month 2 — Service Extraction & LLM (Weeks 5–8)
 
