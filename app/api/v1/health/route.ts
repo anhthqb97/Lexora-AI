@@ -3,6 +3,8 @@ import { connectDatabase, getDatabaseStatus } from "@/lib/db/mongoose";
 import { pingRedis } from "@/lib/redis";
 
 export async function GET() {
+  const start = Date.now();
+
   try {
     await connectDatabase();
   } catch {
@@ -12,6 +14,7 @@ export async function GET() {
   const mongodb = getDatabaseStatus();
   const redisUp = await pingRedis();
   const healthy = mongodb === "connected";
+  const latencyMs = Date.now() - start;
 
   return ok(
     {
@@ -21,6 +24,10 @@ export async function GET() {
       checks: {
         mongodb,
         redis: redisUp ? "connected" : "disconnected",
+      },
+      metrics: {
+        uptimeSeconds: Math.floor(process.uptime()),
+        latencyMs,
       },
     },
     healthy ? 200 : 503,
