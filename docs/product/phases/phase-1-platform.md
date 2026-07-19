@@ -75,7 +75,7 @@
 | P1-T018 | `lib/ai` — OpenAI client + prompt loader | AI Dev | 5 | ✅ |
 | P1-T019 | Deploy tutor-speaking-prompt + guardrails | AI Dev | 3 | ✅ |
 | P1-T020 | Content moderation (input/output filter) | AI Dev | 5 | ✅ |
-| P1-T021 | `lib/speech/azure` — STT integration | AI Dev | 8 | ⬜ |
+| P1-T021 | `lib/speech/azure` — STT integration | AI Dev | 8 | ✅ |
 | P1-T022 | Azure pronunciation scoring | AI Dev | 8 | ⬜ |
 | P1-T023 | Conversation context manager (Redis) | AI Dev | 5 | ⬜ |
 | P1-T024 | Paywall component | Dev | 3 | ⬜ |
