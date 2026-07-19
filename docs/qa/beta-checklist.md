@@ -1,6 +1,6 @@
 # Beta & Launch Checklist — Lexora AI
 
-**Version:** 1.0
+**Version:** 1.1
 **Last Updated:** 2026-07-19
 
 Cross-feature gates for closed beta, open beta, and public launch.
@@ -14,15 +14,18 @@ Cross-feature gates for closed beta, open beta, and public launch.
 - [ ] Speaking MVP acceptance checklist complete
 - [ ] Platform acceptance checklist complete
 - [ ] Staging environment stable 7 days
-- [ ] Beta feedback form ready (Google Form or in-app)
-- [ ] 50 learners recruited (30 students, 20 professionals)
+- [ ] Beta feedback form ready (Google Form or in-app) — see [`beta-feedback-form-spec.md`](../product/beta/beta-feedback-form-spec.md)
+- [ ] 50 learners recruited (30 students, 20 professionals) — see [`beta-recruitment-plan.md`](../product/beta/beta-recruitment-plan.md)
+- [ ] Beta P0 triage process documented — see [`beta-p0-triage.md`](../product/beta/beta-p0-triage.md)
 
 ### During beta
 
-- [ ] Monitor session completion rate daily
+- [ ] Monitor session completion rate daily — see [`beta-completion-monitoring.md`](../product/beta/beta-completion-monitoring.md)
 - [ ] Monitor AI latency and error rates
 - [ ] Collect feedback usefulness rating (1–5)
-- [ ] Triage P0 bugs within 24h
+- [ ] Triage P0 bugs within 24h — see [`beta-p0-triage.md`](../product/beta/beta-p0-triage.md)
+- [ ] Speech accuracy review (100 VN samples) — see [`speech-accuracy-review-vn.md`](../product/beta/speech-accuracy-review-vn.md)
+- [ ] Beta go/no-go report completed — see [`beta-go-no-go-template.md`](../product/beta/beta-go-no-go-template.md)
 
 ### Beta exit gate
 
@@ -46,7 +49,9 @@ Cross-feature gates for closed beta, open beta, and public launch.
 - [ ] Payment sandbox → production credentials
 - [ ] MoMo + VNPay production tested
 - [ ] Landing page live
-- [ ] Analytics dashboards configured
+- [ ] Open beta plan (500 users) — see [`open-beta-500-plan.md`](../product/beta/open-beta-500-plan.md)
+- [ ] Performance hardening 2K concurrent — see [`performance-hardening-2k.md`](../engineering/performance-hardening-2k.md)
+- [ ] Security review checklist — see [`security-review-checklist.md`](../engineering/security-review-checklist.md)
 
 ### Open beta gate
 
@@ -86,6 +91,9 @@ Cross-feature gates for closed beta, open beta, and public launch.
 - [ ] Privacy policy + terms published (VI)
 
 **Ops**
+- [ ] Production deploy runbook — [`production-deploy-runbook.md`](../engineering/production-deploy-runbook.md)
+- [ ] Domain DNS + SSL — [`domain-dns-ssl-runbook.md`](../engineering/domain-dns-ssl-runbook.md)
+- [ ] MongoDB backup policy — [`mongodb-backup-restore-policy.md`](../engineering/mongodb-backup-restore-policy.md)
 - [ ] Error monitoring live
 - [ ] On-call rotation defined
 - [ ] Rollback plan documented
