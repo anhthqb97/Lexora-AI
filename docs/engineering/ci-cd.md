@@ -422,3 +422,14 @@ npm run test:e2e:smoke   # if UI changed
 | Development rules | [`development-rules.md`](development-rules.md) |
 | Build setup | [`build-setup-plan.md`](build-setup-plan.md) |
 | Phase 1 tasks | [`../product/phases/phase-1-mvp-launch.md`](../product/phases/phase-1-mvp-launch.md) |
+
+---
+
+## 11. Approval (P0-T21)
+
+| Role | Date | Status |
+|---|---|---|
+| QA Lead | 2026-07-19 | ✅ Approved |
+| Technical Lead | 2026-07-19 | ✅ Approved |
+
+**Agreed:** Playwright for E2E · Required PR checks: `ci.yml`, `security.yml`, `e2e.yml` (smoke), `pr-gate.yml` · Full implementation in P1-T004, P1-T100, P1-T104.

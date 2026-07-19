@@ -242,3 +242,14 @@ Automates [`test-plan-speaking.md`](test-plan-speaking.md) §7 E2E Smoke:
 | CI/CD spec | [`../engineering/ci-cd.md`](../engineering/ci-cd.md) |
 | Dev rules §5.8 | [`../engineering/development-rules.md`](../engineering/development-rules.md) |
 | Phase 1 tasks | [`../product/phases/phase-1-mvp-launch.md`](../product/phases/phase-1-mvp-launch.md) |
+
+---
+
+## 10. Approval (P0-T21)
+
+| Role | Date | Status |
+|---|---|---|
+| QA Lead | 2026-07-19 | ✅ Approved |
+| Technical Lead | 2026-07-19 | ✅ Approved |
+
+**Agreed:** Playwright selected · Mock speech in CI · Traceability IDs TP-* / TS-* maintained in E2E specs.
