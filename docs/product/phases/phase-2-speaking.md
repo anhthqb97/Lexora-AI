@@ -27,7 +27,7 @@
 
 | ID | Task | Owner | Pts | Status |
 |---|---|---|---|---|
-| P1-T029 | `lib/modules/speaking` scaffold | Dev | 3 | ⬜ |
+| P1-T029 | `lib/modules/speaking` scaffold | Dev | 3 | ✅ |
 | P1-T030 | Speaking Home page | Dev | 3 | ⬜ |
 | P1-T031 | Session setup (type, topic, duration) | Dev | 5 | ⬜ |
 | P1-T032 | Voice consent modal + logging | Dev | 5 | ⬜ |
