@@ -19,4 +19,6 @@ export {
   startMockTest,
 } from "./service";
 export { getLimitStatus, ToeicLimitError, hasCompletedDiagnostic } from "./limits";
-export { getSampleQuestions, countQuestionsInDb } from "./content";
+export { getSampleQuestions, countQuestionsInDb, getQuestionsForAttempt } from "./content";
+export { listLessons, getLesson } from "./lessons";
+export { listMockForms } from "./mock-forms";

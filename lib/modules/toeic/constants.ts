@@ -27,7 +27,9 @@ export const MOCK_LISTENING_COUNT = 100;
 export const MOCK_READING_COUNT = 100;
 export const MOCK_DURATION_MINUTES = 120;
 
-export const MOCK_FORM_ID = "MOCK-001";
+export const MOCK_FORM_ID = "MOCK-A";
+export const MOCK_FORM_IDS = ["MOCK-A", "MOCK-B", "MOCK-C"] as const;
+export type MockFormId = (typeof MOCK_FORM_IDS)[number];
 
 export const TOEIC_SCORE_MIN = 10;
 export const TOEIC_SECTION_MAX = 495;

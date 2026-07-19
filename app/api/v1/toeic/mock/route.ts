@@ -8,7 +8,8 @@ export async function POST(req: Request) {
   if (!userId) return unauthorized();
 
   try {
-    const result = await startAttempt(userId, { type: "mock" });
+    const body = (await req.json().catch(() => ({}))) as { formId?: string };
+    const result = await startAttempt(userId, { type: "mock", formId: body.formId });
     return ok({ data: result }, 201);
   } catch (error) {
     if (error instanceof ToeicLimitError) {

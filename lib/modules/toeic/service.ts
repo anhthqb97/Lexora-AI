@@ -4,6 +4,8 @@ import {
   DIAGNOSTIC_DURATION_MINUTES,
   MOCK_DURATION_MINUTES,
   MOCK_FORM_ID,
+  MOCK_FORM_IDS,
+  type MockFormId,
   type AttemptType,
 } from "./constants";
 import {
@@ -11,6 +13,7 @@ import {
   selectDiagnosticQuestionIds,
   selectMockQuestionIds,
 } from "./content";
+import { selectMockQuestionIdsForForm } from "./mock-forms";
 import { buildReport, gradeAnswer } from "./evaluation";
 import { assertCanStartDiagnostic, assertCanStartMock, getLimitStatus } from "./limits";
 import { ToeicAttemptModel, toAttemptDTO, toPublicQuestionDTO } from "./models";
@@ -76,18 +79,26 @@ export async function startAttempt(
   const questionIds =
     input.type === "diagnostic"
       ? await selectDiagnosticQuestionIds()
-      : await selectMockQuestionIds();
+      : input.formId && MOCK_FORM_IDS.includes(input.formId as MockFormId)
+        ? await selectMockQuestionIdsForForm(input.formId as MockFormId)
+        : await selectMockQuestionIds();
 
   const durationMinutes =
     input.type === "diagnostic" ? DIAGNOSTIC_DURATION_MINUTES : MOCK_DURATION_MINUTES;
   const startedAt = new Date();
   const expiresAt = new Date(startedAt.getTime() + durationMinutes * 60_000);
+  const formId =
+    input.type === "mock"
+      ? MOCK_FORM_IDS.includes((input.formId ?? MOCK_FORM_ID) as MockFormId)
+        ? (input.formId as MockFormId)
+        : MOCK_FORM_ID
+      : undefined;
 
   const doc = await ToeicAttemptModel.create({
     userId: new mongoose.Types.ObjectId(userId),
     type: input.type,
     status: "in_progress",
-    formId: input.type === "mock" ? MOCK_FORM_ID : undefined,
+    formId,
     questionIds,
     answers: [],
     startedAt,

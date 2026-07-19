@@ -1,24 +1,21 @@
-import { ToeicExamClient } from "@/components/toeic/toeic-exam-client";
+import Link from "next/link";
+import { MockFormSelector } from "@/components/toeic/mock-form-selector";
+import { Button } from "@/components/ui/button";
 import { getAuthUserId } from "@/lib/api/auth";
-import { startAttempt } from "@/lib/modules/toeic";
+import { listMockForms } from "@/lib/modules/toeic";
 import { redirect } from "next/navigation";
 
 export default async function ToeicMockPage() {
   const userId = await getAuthUserId();
   if (!userId) redirect("/login");
+  const forms = listMockForms();
 
-  try {
-    const { attempt, questions } = await startAttempt(userId, { type: "mock" });
-
-    return (
-      <ToeicExamClient
-        attemptId={attempt.id}
-        questions={questions}
-        title="Thi thử TOEIC đầy đủ"
-        finishUrl="/api/v1/toeic/mock"
-      />
-    );
-  } catch {
-    redirect("/toeic");
-  }
+  return (
+    <div className="mx-auto max-w-lg space-y-4">
+      <Button variant="ghost" asChild>
+        <Link href="/toeic">← TOEIC</Link>
+      </Button>
+      <MockFormSelector forms={forms} />
+    </div>
+  );
 }
