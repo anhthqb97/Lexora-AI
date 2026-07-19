@@ -1,5 +1,5 @@
 ---
-description: Lexora AI git, commit, code, and test automation — one task one commit
+description: Lexora AI git, commit, code, and test automation — one task one commit, auto-commit when finish
 alwaysApply: true
 ---
 
@@ -10,21 +10,35 @@ Read full doc: `docs/engineering/development-rules.md`
 ## Task workflow
 
 1. Pick **one task** from `docs/product/phases/` (ID e.g. `P1-T001`)
-2. Branch: `p1/P1-T001-short-description`
+2. Branch: `p1/P1-T001-short-description` (Phase 0 docs: stay on `main`)
 3. Implement **only** that task's scope — **finish code first**
 4. **Add or update automated test case(s)** for the change (unit / integration / E2E)
-5. **Run automation locally — all must pass before push**
-6. **One task = one commit** when DoD is complete
-7. **Push** only after local automation is green
-8. Mark task ✅ in the phase plan file
+5. **Run automation locally — all must pass before commit**
+6. **Auto-commit when finish** — commit immediately when DoD met (same session)
+7. **Push immediately after commit** — do not leave finished work unpushed
+8. Mark task ✅ in the phase plan file (include in same commit when possible)
+
+## Auto-commit rule (mandatory)
+
+When task DoD is complete, **you MUST** run `git commit` and `git push` before ending your turn.
+
+```
+Finish code → Write/update tests → Run automation → Pass? → Commit → Push → Mark ✅
+                                      ↓ fail
+                                   Fix — do not commit or push
+```
+
+| Rule | Detail |
+|---|---|
+| **Never** | Stop with finished uncommitted work |
+| **Never** | Ask user to commit a completed task |
+| **Never** | Batch multiple task IDs in one commit |
+| **Phase 0 docs** | Commit + push directly to `main` |
+| **Sprint 1+ code** | Commit + push task branch → open PR |
+
+**Blockers only:** no git auth, no network — report blocker; still commit locally if push fails.
 
 ## Test automation rule (required)
-
-```
-Finish code → Write/update tests → Run automation → Pass? → Commit → Push
-                                      ↓ fail
-                                   Fix code or tests — do not push
-```
 
 | Change | Required test |
 |---|---|
@@ -32,8 +46,9 @@ Finish code → Write/update tests → Run automation → Pass? → Commit → P
 | `app/api/v1/*` | Integration test |
 | UI / user flow | E2E spec + `npm run test:e2e:smoke` |
 | Bug fix | Regression test |
+| Docs only | No tests — commit when doc DoD met |
 
-**Never push** with failing local tests. CI is a second gate, not a replacement.
+**Never push** code with failing local tests. CI is a second gate, not a replacement.
 
 ## Commit format (strict — enforced by CI)
 
@@ -47,6 +62,7 @@ Finish code → Write/update tests → Run automation → Pass? → Commit → P
 - Lowercase imperative, no trailing period, 3–72 chars
 - **One task = one commit** — branch task ID must match commit task ID
 - PR title must equal commit message
+- Use canonical commit message from phase plan when listed
 
 **Forbidden in commits:** `WIP`, `Co-authored-by`, `Generated-by`, `model`, `fine-tune`, `training`, `trainer`, emojis, generic words (`fix`, `update`, `misc`)
 
@@ -54,7 +70,7 @@ Examples:
 - `P1-T001: scaffold Next.js modular monolith`
 - `P0-T02: complete Azure speech engine spike`
 
-Never combine task IDs. Never amend after push without TL approval.
+Never combine task IDs. **Amend forbidden after push** — fix forward with new task commit.
 
 ## Code (MVP)
 
@@ -63,7 +79,7 @@ Never combine task IDs. Never amend after push without TL approval.
 - AI keys server-side only; prompts from `docs/AI/`
 - Follow `docs/engineering/tech-stack.md` and ADR
 
-## Before push (required)
+## Before commit (code tasks)
 
 ```bash
 npm run lint && npm run typecheck && npm run test
@@ -72,7 +88,8 @@ npm run test:e2e:smoke   # if UI or user flow changed (after P1-T099)
 
 ## Git
 
-- No direct commits to `main`; use PR
+- Phase 0 docs: direct to `main` until M0
+- Sprint 1+: no direct commits to `main`; use PR
 - PR title: `{task-id}: {description}` — validated by GitHub Actions (P1-T104)
 - All CI checks must pass + 1 human approval before merge (see `ci-cd.md`)
 - No secrets in repo
@@ -81,4 +98,4 @@ npm run test:e2e:smoke   # if UI or user flow changed (after P1-T099)
 
 Adjustments require Technical Lead approval.
 
-When using coding assistants: they may help write code — **commit messages remain strict task format with no AI/model/trainer attribution.**
+**Commit messages:** strict task format only — no AI/model/trainer attribution. **Auto-commit + push when task is done.**

@@ -14,7 +14,7 @@ Common rules for all contributors — git, commits, code, and task workflow.
 ## 1. Workflow Overview
 
 ```
-Pick task → Branch → Implement code → Add/update test automation → Run automation locally → Commit → Push → PR
+Pick task → Branch → Implement code → Add/update test automation → Run automation locally → Commit (auto) → Push → PR
 ```
 
 | Step | Rule |
@@ -22,9 +22,11 @@ Pick task → Branch → Implement code → Add/update test automation → Run a
 | 1 | Work **one task at a time** from [`phases/`](../product/phases/) |
 | 2 | Task ID must match phase plan (e.g. `P1-T001`) |
 | 3 | **Finish code first**, then add or update **automated test cases** for that change |
-| 4 | **Run automation locally** — all applicable tests must pass **before push** |
-| 5 | **One task = one commit** (when task DoD is met) |
-| 6 | Do not mix unrelated changes in one commit |
+| 4 | **Run automation locally** — all applicable tests must pass **before commit/push** |
+| 5 | **Auto-commit when finish** — as soon as DoD is met, **commit in the same session** (see §3.6) |
+| 6 | **One task = one commit** (when task DoD is met) |
+| 7 | Do not mix unrelated changes in one commit |
+| 8 | **Push immediately after commit** (Phase 0 docs → `main`; Sprint 1+ → task branch + PR) |
 
 ---
 
@@ -153,7 +155,39 @@ Commit when **all** DoD items are met:
 
 One task may touch many files — still **exactly one commit** when the whole task is done.
 
-### 3.6 Docs-only tasks
+### 3.6 Auto-commit when finish (mandatory)
+
+When a task reaches DoD (§6), **commit immediately** — same session, same task branch (or `main` for Phase 0 docs).
+
+| Rule | Detail |
+|---|---|
+| **When** | Right after code/docs complete **and** local checks pass (tests for code tasks) |
+| **Who** | Developer **or** coding assistant — **must run `git commit`**, not defer to user |
+| **Message** | Exact `{task-id}: {content}` per §3.1 — use canonical message from phase plan when listed |
+| **Scope** | Task files only + mark task ✅ in phase plan (same commit if same task) |
+| **Push** | **Required** after commit — do not leave commits unpushed at end of task |
+| **Never** | Finish work and stop with dirty tree · ask user to commit finished task · batch multiple tasks |
+
+**Phase 0 (docs on `main`):**
+
+```bash
+git add <task-files>
+git commit -m "P0-T11: break phase 1 into estimated sprint backlog"
+git push origin main
+```
+
+**Sprint 1+ (code on task branch):**
+
+```bash
+git add <task-files>
+git commit -m "P1-T001: scaffold Next.js modular monolith"
+git push -u origin p1/P1-T001-monolith-scaffold
+# open PR — title equals commit message
+```
+
+**Coding assistants (Cursor, etc.):** finishing a user-assigned task = **commit + push** are part of DoD unless push is blocked (no network, no auth). Report blocker; do not skip commit step.
+
+### 3.7 Docs-only tasks
 
 Same strict format:
 
@@ -255,8 +289,9 @@ components/    → UI
 1. Finish implementation
 2. Add or update automated test(s) in the same task/branch
 3. Run automation locally — fix until green
-4. Commit
+4. Commit immediately (auto-commit — §3.6)
 5. Push (only if local automation passed)
+6. Mark task ✅ in phase plan (same commit if not already included)
 ```
 
 **Do not push** if unit, integration, or applicable E2E tests fail locally. CI is a second gate — not a substitute for local runs.
@@ -295,13 +330,13 @@ Every task is done when:
 
 1. Scope in phase plan is complete
 2. Acceptance criteria met (if listed on task)
-3. **Automated tests written/updated and run locally — all pass**
-4. Lint, typecheck pass
+3. **Automated tests written/updated and run locally — all pass** (code tasks)
+4. Lint, typecheck pass (code tasks)
 5. No P0/P1 bugs introduced
-6. One commit with correct `{task-id}: {content}` format
-7. **Pushed** — only after local automation green
+6. One commit with correct `{task-id}: {content}` format — **committed in same session**
+7. **Pushed** — only after local automation green; **never leave finished task unpushed**
 8. Task marked ✅ in phase plan
-9. PR merged (or TL waives PR for solo docs tasks)
+9. PR merged (Sprint 1+ code) or direct to `main` (Phase 0 docs until M0)
 
 ---
 
@@ -326,21 +361,21 @@ Document adjustments in PR description or team channel. Update this file when po
 git checkout main && git pull
 git checkout -b p1/P1-T001-monolith-scaffold
 
-# Finish task — ORDER MATTERS
+# Finish task — ORDER MATTERS (auto-commit when finish)
 # 1. Finish code
 # 2. Add/update automated tests for this task
-# 3. Run automation (must pass before push)
+# 3. Run automation (must pass before commit)
 npm run lint && npm run typecheck && npm run test
 npm run test:e2e:smoke   # if UI/flow changed (after P1-T099)
 
-# 4. Commit
+# 4. Commit immediately — do not defer
 git add -A
 git commit -m "P1-T001: scaffold Next.js modular monolith"
 
-# 5. Push — only if tests passed
+# 5. Push — required after commit
 git push -u origin p1/P1-T001-monolith-scaffold
 
-# Mark task ✅ in the matching phase file under docs/product/phases/
+# 6. Mark task ✅ in docs/product/phases/
 ```
 
 ---
