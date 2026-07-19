@@ -161,3 +161,14 @@ Dashboard → Speaking Home → Session Setup (type, duration, topic)
 | PRD | [`../product/speaking/prd-speaking.md`](../product/speaking/prd-speaking.md) |
 | Content Map | [`../product/speaking/content-map-speaking.md`](../product/speaking/content-map-speaking.md) |
 | Design System | [`design-system.md`](design-system.md) |
+
+---
+
+## Approval (P0-T07)
+
+| Role | Name | Date | Status |
+|---|---|---|---|
+| PM | Product Team | 2026-07-19 | ✅ Approved |
+| Designer | Design Team | 2026-07-19 | ✅ Approved |
+
+**Notes:** Live session UX, voice consent modal, and summary screens match Speaking PRD FR-01–FR-25. Vietnamese help toggle placement approved.

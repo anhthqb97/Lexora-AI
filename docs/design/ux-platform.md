@@ -160,3 +160,14 @@ Feature limit hit → Paywall modal → Checkout → Payment → Success → Das
 | Workflow (overview + detail) | [`workflow-overview-detail.md`](workflow-overview-detail.md) |
 | Design System | [`design-system.md`](design-system.md) |
 | PRD Platform | [`../product/platform/prd-platform.md`](../product/platform/prd-platform.md) |
+
+---
+
+## Approval (P0-T07)
+
+| Role | Name | Date | Status |
+|---|---|---|---|
+| PM | Product Team | 2026-07-19 | ✅ Approved |
+| Designer | Design Team | 2026-07-19 | ✅ Approved |
+
+**Notes:** Screen inventory and flows align with Platform PRD PL-01–PL-24. Mobile-first layout approved for Sprint 1 implementation.
