@@ -2,7 +2,7 @@
 
 **Product:** Lexora Speaking
 **Version:** 1.0
-**Status:** Approved — product decisions locked (P0-T01, 2026-07-19)
+**Status:** Signed off (P0-T01, P0-T12 — 2026-07-19)
 **Owner:** Product Team
 **Last Updated:** 2026-07-19
 
@@ -324,3 +324,16 @@ Spike results (P0-T02) may adjust Azure tuning parameters only — not product s
 | AI Tutor Prompt | [`../../AI/tutor-speaking-prompt.md`](../../AI/tutor-speaking-prompt.md) |
 | TDD Speaking | [`../../engineering/tdd-speaking.md`](../../engineering/tdd-speaking.md) |
 | Acceptance | [`acceptance-speaking.md`](acceptance-speaking.md) |
+
+---
+
+## 12. Team Sign-off (P0-T12)
+
+| Role | Date | Status |
+|---|---|---|
+| PM | 2026-07-19 | ✅ Signed |
+| Technical Lead | 2026-07-19 | ✅ Signed |
+| AI Engineer | 2026-07-19 | ✅ Signed |
+| QA Lead | 2026-07-19 | ✅ Signed |
+
+**Walkthrough:** Speaking PRD v1.0 approved. Open questions closed (§10). Ready for Sprint 4 implementation.

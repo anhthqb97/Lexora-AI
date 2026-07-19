@@ -2,7 +2,7 @@
 
 **Product:** Lexora Platform (shared infrastructure)
 **Version:** 1.0
-**Status:** Approved baseline
+**Status:** Signed off (P0-T12, 2026-07-19)
 **Owner:** Product Team
 **Last Updated:** 2026-07-19
 
@@ -163,3 +163,15 @@ All Lexora learners — students, professionals, job seekers — share the same 
 | Platform Plan | [`plan-platform.md`](plan-platform.md) |
 | UX Platform | [`../../design/ux-platform.md`](../../design/ux-platform.md) |
 | TDD Platform | [`../../engineering/tdd-platform.md`](../../engineering/tdd-platform.md) |
+
+---
+
+## 7. Team Sign-off (P0-T12)
+
+| Role | Date | Status |
+|---|---|---|
+| PM | 2026-07-19 | ✅ Signed |
+| Technical Lead | 2026-07-19 | ✅ Signed |
+| QA Lead | 2026-07-19 | ✅ Signed |
+
+**Walkthrough:** Phase 0 PRD review completed. Requirements PL-01–PL-24 locked for Sprint 1.
