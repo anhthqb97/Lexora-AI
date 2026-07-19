@@ -18,7 +18,7 @@ export const PRODUCTS: Product[] = [
     title: "TOEIC Prep",
     description: "Luyện thi TOEIC với bài học thích ứng và thi thử",
     href: "/toeic",
-    badge: "Sắp ra mắt",
+    badge: "MVP",
     accent: "orange",
   },
   {
