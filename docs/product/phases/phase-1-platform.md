@@ -52,7 +52,7 @@
 | P1-T009 | Phone OTP login (+84) | Dev | 5 | ✅ |
 | P1-T010 | Google + Facebook OAuth | Dev | 3 | ✅ |
 | P1-T011 | User profile module (`lib/modules/user`) | Dev | 3 | ✅ |
-| P1-T012 | Onboarding: goal selection | Dev | 3 | ⬜ |
+| P1-T012 | Onboarding: goal selection | Dev | 3 | ✅ |
 | P1-T013 | Onboarding: level selection (A1–C1) | Dev | 2 | ⬜ |
 | P1-T014 | Responsive dashboard layout (VI UI) | Dev | 5 | ⬜ |
 | P1-T015 | Product cards (TOEIC, Speaking, etc.) | Dev | 3 | ⬜ |
