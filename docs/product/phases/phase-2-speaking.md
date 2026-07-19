@@ -31,7 +31,7 @@
 | P1-T030  Speaking Home page | Dev | 3 | ✅ |
 | P1-T031  Session setup (type, topic, duration) | Dev | 5 | ✅ |
 | P1-T032  Voice consent modal + logging | Dev | 5 | ✅ |
-| P1-T033 | Free-tier limit enforcement (3/week) | Dev | 3 | ⬜ |
+| P1-T033  Free-tier limit enforcement (3/week) | Dev | 3 | ✅ |
 | P1-T034 | Live session UI (mic, waveform, timer) | Dev | 8 | ⬜ |
 | P1-T035 | AI greeting + opening question | AI Dev | 5 | ⬜ |
 | P1-T036 | Speak → transcribe → AI respond loop | AI Dev | 13 | ⬜ |
