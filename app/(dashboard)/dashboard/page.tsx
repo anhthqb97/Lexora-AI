@@ -1,4 +1,5 @@
 import { ProductCard, PRODUCTS } from "@/components/dashboard/product-card";
+import { DailyChallengeCard } from "@/components/speaking/daily-challenge-card";
 import { SpeakingDashboardWidget } from "@/components/speaking/speaking-dashboard-widget";
 import { getAuthUserId } from "@/lib/api/auth";
 import { getProgress } from "@/lib/modules/speaking";
@@ -28,6 +29,8 @@ export default async function DashboardPage() {
           averageConfidence={speakingProgress.averageConfidence}
         />
       )}
+
+      <DailyChallengeCard />
 
       <div className="grid gap-4 sm:grid-cols-2">
         {PRODUCTS.map((product) => (

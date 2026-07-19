@@ -1,20 +1,21 @@
 import { useCallback, useState } from "react";
 import { useFocusEffect, router } from "expo-router";
-import {
-  ActivityIndicator,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import type { SpeakingProgressSummary, ToeicLimitStatus, UserProfile } from "@lexora/shared";
 import { apiFetch, getStoredToken } from "@/lib/api-client";
+
+type ChallengeStatus = {
+  dayKey: string;
+  prompt: string;
+  completedToday: boolean;
+  streak: number;
+};
 
 type DashboardData = {
   profile: UserProfile;
   speaking: SpeakingProgressSummary;
   toeic: ToeicLimitStatus & { latestScore?: number };
+  challenge: ChallengeStatus;
 };
 
 export default function DashboardScreen() {
@@ -31,12 +32,13 @@ export default function DashboardScreen() {
     setLoading(true);
     setError(null);
     try {
-      const [profile, speaking, toeic] = await Promise.all([
+      const [profile, speaking, toeic, challenge] = await Promise.all([
         apiFetch<UserProfile>("/api/v1/users/me"),
         apiFetch<SpeakingProgressSummary>("/api/v1/speaking/progress"),
         apiFetch<ToeicLimitStatus>("/api/v1/toeic/limits"),
+        apiFetch<ChallengeStatus>("/api/v1/speaking/challenge"),
       ]);
-      setData({ profile, speaking, toeic });
+      setData({ profile, speaking, toeic, challenge });
     } catch (e) {
       setError(e instanceof Error ? e.message : "Failed to load dashboard");
     } finally {
@@ -71,7 +73,18 @@ export default function DashboardScreen() {
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <Text style={styles.greeting}>Xin chào, {data.profile.name ?? data.profile.email ?? "bạn"}!</Text>
+      <Text style={styles.greeting}>
+        Xin chào, {data.profile.name ?? data.profile.email ?? "bạn"}!
+      </Text>
+
+      <View style={styles.card}>
+        <Text style={styles.cardTitle}>🔥 Daily Challenge</Text>
+        <Text style={styles.cardText}>{data.challenge.prompt}</Text>
+        <Text style={styles.cardText}>
+          Streak: {data.challenge.streak} ·{" "}
+          {data.challenge.completedToday ? "Done today ✓" : "Not done yet"}
+        </Text>
+      </View>
 
       <View style={styles.card}>
         <Text style={styles.cardTitle}>🎤 Speaking</Text>

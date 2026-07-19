@@ -22,3 +22,4 @@ export {
 } from "./service";
 export { hasVoiceConsent, grantVoiceConsent } from "./consent";
 export { getWeeklyLimitStatus, SpeakingLimitError } from "./limits";
+export { getDailyChallenge, completeDailyChallenge, getDailyPrompt } from "./challenge";
