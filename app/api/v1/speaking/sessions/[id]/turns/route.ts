@@ -6,7 +6,7 @@ import { SpeakingError, processTurn } from "@/lib/modules/speaking";
 type Params = { params: Promise<{ id: string }> };
 
 export async function POST(req: Request, { params }: Params) {
-  const userId = await getAuthUserId();
+  const userId = await getAuthUserId(req);
   if (!userId) return unauthorized();
 
   const { id } = await params;

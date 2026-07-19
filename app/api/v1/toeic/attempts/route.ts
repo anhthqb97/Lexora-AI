@@ -5,7 +5,7 @@ import { ToeicError, listAttempts } from "@/lib/modules/toeic";
 import { submitAnswer } from "@/lib/modules/toeic/service";
 
 export async function GET(req: Request) {
-  const userId = await getAuthUserId();
+  const userId = await getAuthUserId(req);
   if (!userId) return unauthorized();
 
   const { searchParams } = new URL(req.url);
@@ -16,7 +16,7 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
-  const userId = await getAuthUserId();
+  const userId = await getAuthUserId(req);
   if (!userId) return unauthorized();
 
   try {

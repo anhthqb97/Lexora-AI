@@ -9,8 +9,8 @@ import {
 } from "@/lib/modules/speaking";
 import { SESSION_DURATIONS, SESSION_TYPES } from "@/lib/modules/speaking/constants";
 
-export async function GET() {
-  const userId = await getAuthUserId();
+export async function GET(req: Request) {
+  const userId = await getAuthUserId(req);
   if (!userId) return unauthorized();
 
   try {
@@ -28,7 +28,7 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
-  const userId = await getAuthUserId();
+  const userId = await getAuthUserId(req);
   if (!userId) return unauthorized();
 
   try {

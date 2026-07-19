@@ -3,8 +3,8 @@ import { getAuthUserId, unauthorized } from "@/lib/api/auth";
 import { ok } from "@/lib/api/response";
 import { deleteAccount, getProfile, updateProfile, UserError } from "@/lib/modules/user/service";
 
-export async function GET() {
-  const userId = await getAuthUserId();
+export async function GET(req: Request) {
+  const userId = await getAuthUserId(req);
   if (!userId) return unauthorized();
 
   try {
@@ -22,7 +22,7 @@ export async function GET() {
 }
 
 export async function PATCH(req: Request) {
-  const userId = await getAuthUserId();
+  const userId = await getAuthUserId(req);
   if (!userId) return unauthorized();
 
   try {
@@ -44,8 +44,8 @@ export async function PATCH(req: Request) {
   }
 }
 
-export async function DELETE() {
-  const userId = await getAuthUserId();
+export async function DELETE(req: Request) {
+  const userId = await getAuthUserId(req);
   if (!userId) return unauthorized();
 
   try {

@@ -6,7 +6,7 @@ import { ToeicError, getReport } from "@/lib/modules/toeic";
 type RouteParams = { params: Promise<{ id: string }> };
 
 export async function GET(_req: Request, { params }: RouteParams) {
-  const userId = await getAuthUserId();
+  const userId = await getAuthUserId(req);
   if (!userId) return unauthorized();
 
   const { id } = await params;

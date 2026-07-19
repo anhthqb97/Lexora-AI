@@ -3,7 +3,7 @@ import { ok } from "@/lib/api/response";
 import { getScoreTrends } from "@/lib/modules/speaking";
 
 export async function GET(req: Request) {
-  const userId = await getAuthUserId();
+  const userId = await getAuthUserId(req);
   if (!userId) return unauthorized();
 
   const url = new URL(req.url);

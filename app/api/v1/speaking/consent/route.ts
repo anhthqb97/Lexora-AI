@@ -3,8 +3,8 @@ import { getAuthUserId, unauthorized } from "@/lib/api/auth";
 import { ok } from "@/lib/api/response";
 import { grantVoiceConsent, hasVoiceConsent } from "@/lib/modules/speaking";
 
-export async function GET() {
-  const userId = await getAuthUserId();
+export async function GET(req: Request) {
+  const userId = await getAuthUserId(req);
   if (!userId) return unauthorized();
 
   const granted = await hasVoiceConsent(userId);
@@ -12,7 +12,7 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
-  const userId = await getAuthUserId();
+  const userId = await getAuthUserId(req);
   if (!userId) return unauthorized();
 
   const body = await req.json();

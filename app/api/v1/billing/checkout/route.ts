@@ -5,7 +5,7 @@ import { BillingError, createCheckout } from "@/lib/modules/billing/service";
 import type { PaymentProvider } from "@/lib/modules/billing/constants";
 
 export async function POST(req: Request) {
-  const userId = await getAuthUserId();
+  const userId = await getAuthUserId(req);
   if (!userId) return unauthorized();
 
   try {

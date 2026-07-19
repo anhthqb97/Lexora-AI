@@ -3,8 +3,8 @@ import { getAuthUserId, unauthorized } from "@/lib/api/auth";
 import { ok } from "@/lib/api/response";
 import { ToeicError, ToeicLimitError, finishAttempt, startAttempt } from "@/lib/modules/toeic";
 
-export async function POST() {
-  const userId = await getAuthUserId();
+export async function POST(req: Request) {
+  const userId = await getAuthUserId(req);
   if (!userId) return unauthorized();
 
   try {
@@ -28,7 +28,7 @@ export async function POST() {
 }
 
 export async function PATCH(req: Request) {
-  const userId = await getAuthUserId();
+  const userId = await getAuthUserId(req);
   if (!userId) return unauthorized();
 
   try {
