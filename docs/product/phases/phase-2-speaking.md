@@ -51,7 +51,7 @@
 | P1-T041  Grammar scoring | AI Dev | 5 | ✅ |
 | P1-T042  Vocabulary scoring | AI Dev | 5 | ✅ |
 | P1-T043  Confidence score aggregation | AI Dev | 3 | ✅ |
-| P1-T044 | Top 3 improvement areas | AI Dev | 3 | ⬜ |
+| P1-T044  Top 3 improvement areas | AI Dev | 3 | ✅ |
 | P1-T045 | VN-accent tuning / validation | AI Dev | 8 | ⬜ |
 | P1-T046 | AI follow-up questions | AI Dev | 5 | ⬜ |
 | P1-T047 | Dynamic level adaptation (A1–C1) | AI Dev | 8 | ⬜ |
