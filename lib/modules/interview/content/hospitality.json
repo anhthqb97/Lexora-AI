@@ -1,0 +1,20 @@
+[
+  {
+    "id": "HOS-01",
+    "industry": "hospitality",
+    "question": "Why do you want to work in hospitality?",
+    "followUp": "Describe handling a difficult guest."
+  },
+  {
+    "id": "HOS-02",
+    "industry": "hospitality",
+    "question": "How do you work under busy shift pressure?",
+    "followUp": "Tell me about teamwork in your last role."
+  },
+  {
+    "id": "HOS-03",
+    "industry": "hospitality",
+    "question": "What does excellent customer service mean to you?",
+    "followUp": "Share an example of going extra mile."
+  }
+]

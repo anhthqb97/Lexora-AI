@@ -1,0 +1,20 @@
+[
+  {
+    "id": "IT-01",
+    "industry": "it",
+    "question": "Tell me about yourself and your technical background.",
+    "followUp": "What was your most challenging project?"
+  },
+  {
+    "id": "IT-02",
+    "industry": "it",
+    "question": "Describe a time you solved a production bug under pressure.",
+    "followUp": "What tools did you use?"
+  },
+  {
+    "id": "IT-03",
+    "industry": "it",
+    "question": "How do you prioritize tasks when deadlines overlap?",
+    "followUp": "Give a specific example."
+  }
+]
