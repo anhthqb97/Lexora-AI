@@ -1,0 +1,84 @@
+---
+description: Lexora AI git, commit, code, and test automation — one task one commit
+alwaysApply: true
+---
+
+# Lexora AI — Development Rules
+
+Read full doc: `docs/engineering/development-rules.md`
+
+## Task workflow
+
+1. Pick **one task** from `docs/product/phases/` (ID e.g. `P1-T001`)
+2. Branch: `p1/P1-T001-short-description`
+3. Implement **only** that task's scope — **finish code first**
+4. **Add or update automated test case(s)** for the change (unit / integration / E2E)
+5. **Run automation locally — all must pass before push**
+6. **One task = one commit** when DoD is complete
+7. **Push** only after local automation is green
+8. Mark task ✅ in the phase plan file
+
+## Test automation rule (required)
+
+```
+Finish code → Write/update tests → Run automation → Pass? → Commit → Push
+                                      ↓ fail
+                                   Fix code or tests — do not push
+```
+
+| Change | Required test |
+|---|---|
+| `lib/modules/*` | Unit test |
+| `app/api/v1/*` | Integration test |
+| UI / user flow | E2E spec + `npm run test:e2e:smoke` |
+| Bug fix | Regression test |
+
+**Never push** with failing local tests. CI is a second gate, not a replacement.
+
+## Commit format (strict — enforced by CI)
+
+```
+{task-id}: {content}
+```
+
+**Rules:**
+- Single line only — no body, no `Co-authored-by`, no AI tool attribution
+- Regex: `^(P0-T\d+|P1-T\d+|P1C-T\d+|P2-T\d+|P3-T\d+): [a-z0-9][a-z0-9 /-]{2,71}$`
+- Lowercase imperative, no trailing period, 3–72 chars
+- **One task = one commit** — branch task ID must match commit task ID
+- PR title must equal commit message
+
+**Forbidden in commits:** `WIP`, `Co-authored-by`, `Generated-by`, `model`, `fine-tune`, `training`, `trainer`, emojis, generic words (`fix`, `update`, `misc`)
+
+Examples:
+- `P1-T001: scaffold Next.js modular monolith`
+- `P0-T02: complete Azure speech engine spike`
+
+Never combine task IDs. Never amend after push without TL approval.
+
+## Code (MVP)
+
+- Next.js 15 modular monolith: logic in `lib/modules/*`, thin `app/api/v1/` routes
+- MongoDB + Mongoose, TypeScript strict
+- AI keys server-side only; prompts from `docs/AI/`
+- Follow `docs/engineering/tech-stack.md` and ADR
+
+## Before push (required)
+
+```bash
+npm run lint && npm run typecheck && npm run test
+npm run test:e2e:smoke   # if UI or user flow changed (after P1-T099)
+```
+
+## Git
+
+- No direct commits to `main`; use PR
+- PR title: `{task-id}: {description}` — validated by GitHub Actions (P1-T104)
+- All CI checks must pass + 1 human approval before merge (see `ci-cd.md`)
+- No secrets in repo
+- No force push to `main`
+- No `--no-verify` unless TL approves
+
+Adjustments require Technical Lead approval.
+
+When using coding assistants: they may help write code — **commit messages remain strict task format with no AI/model/trainer attribution.**
