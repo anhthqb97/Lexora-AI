@@ -45,7 +45,7 @@
 | P1-T068 | `lib/modules/toeic` scaffold | Dev | 3 | ✅ |
 | P1-T069 | TOEIC diagnostic test (L+R subset) | Dev | 8 | ✅ |
 | P1-T070 | Question bank seed (500 questions) | Content + Dev | 8 | ✅ |
-| P1-T071 | Mock exam module (1 full test) | Dev | 13 | ⬜ |
+| P1-T071 | Mock exam module (1 full test) | Dev | 13 | ✅ |
 | P1-T072 | Score report + explain-why on wrong answers | AI Dev | 8 | ⬜ |
 | P1-T073 | TOEIC dashboard integration | Dev | 5 | ⬜ |
 | P1-T074 | AI tutor prompt — TOEIC | AI Dev | 3 | ⬜ |
