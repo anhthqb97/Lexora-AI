@@ -77,7 +77,7 @@
 | P1-T020 | Content moderation (input/output filter) | AI Dev | 5 | ✅ |
 | P1-T021 | `lib/speech/azure` — STT integration | AI Dev | 8 | ✅ |
 | P1-T022 | Azure pronunciation scoring | AI Dev | 8 | ✅ |
-| P1-T023 | Conversation context manager (Redis) | AI Dev | 5 | ⬜ |
+| P1-T023 | Conversation context manager (Redis) | AI Dev | 5 | ✅ |
 | P1-T024 | Paywall component | Dev | 3 | ⬜ |
 | P1-T025 | MoMo payment sandbox integration | Dev | 8 | ⬜ |
 | P1-T026 | VNPay + card payment sandbox | Dev | 5 | ⬜ |
