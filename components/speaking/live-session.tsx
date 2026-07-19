@@ -121,7 +121,12 @@ export function LiveSession({
       setIsRecording(true);
       setState("listening");
     } catch {
-      setError("Cần quyền micro để luyện nói. Hướng dẫn cài đặt?");
+      const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+      setError(
+        isSafari
+          ? "Safari: vào Cài đặt > Safari > Microphone và bật quyền cho trang này, sau đó tải lại."
+          : "Cần quyền micro để luyện nói. Kiểm tra quyền trình duyệt và thử lại.",
+      );
     }
   }
 
