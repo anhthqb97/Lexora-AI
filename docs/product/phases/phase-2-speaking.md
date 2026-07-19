@@ -76,7 +76,7 @@
 | P1-T057  Session resume after interrupt (P1) | Dev | 5 | ✅ |
 | P1-T058  Score trend charts 7/30/90d (P1) | Dev | 5 | ✅ |
 | P1-T102  Speaking E2E smoke automated (Playwright) | QA + Dev | 8 | ✅ |
-| P1-T059 | QA verify E2E suite + mobile spot check | QA | 3 | ⬜ |
+| P1-T059  QA verify E2E suite + mobile spot check | QA | 3 | ✅ |
 | P1-T060 | Load test: 500 concurrent sessions | Architect | 3 | ⬜ |
 
 **Demo:** End-to-end session + summary + dashboard.
