@@ -41,7 +41,7 @@
 
 | ID | Task | Owner | Pts | Status |
 |---|---|---|---|---|
-| P1-T067 | Finalize TOEIC content-map | PM | — | ⬜ |
+| P1-T067 | Finalize TOEIC content-map | PM | — | ✅ |
 | P1-T068 | `lib/modules/toeic` scaffold | Dev | 3 | ⬜ |
 | P1-T069 | TOEIC diagnostic test (L+R subset) | Dev | 8 | ⬜ |
 | P1-T070 | Question bank seed (500 questions) | Content + Dev | 8 | ⬜ |
