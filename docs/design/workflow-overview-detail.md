@@ -579,3 +579,14 @@ stateDiagram-v2
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-07-19 | Initial overview + detail workflows for Platform, Speaking, TOEIC, Billing |
+
+---
+
+## Approval (P0-T08)
+
+| Role | Name | Date | Status |
+|---|---|---|---|
+| PM | Product Team | 2026-07-19 | ✅ Approved |
+| Architect | Technical Lead | 2026-07-19 | ✅ Approved |
+
+**Notes:** End-to-end flows match PRD requirements. Speaking turn pipeline (§4) and billing state machine (§8) approved for TDD implementation.
