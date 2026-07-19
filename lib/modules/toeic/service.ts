@@ -12,17 +12,13 @@ import {
   selectMockQuestionIds,
 } from "./content";
 import { buildReport, gradeAnswer } from "./evaluation";
-import {
-  assertCanStartDiagnostic,
-  assertCanStartMock,
-  getLimitStatus,
-  ToeicLimitError,
-} from "./limits";
+import { assertCanStartDiagnostic, assertCanStartMock, getLimitStatus } from "./limits";
 import { ToeicAttemptModel, toAttemptDTO, toPublicQuestionDTO } from "./models";
 import type {
   FinishAttemptInput,
   StartAttemptInput,
   SubmitAnswerInput,
+  ToeicAnswer,
   ToeicAttempt,
   ToeicQuestion,
   ToeicReport,
@@ -127,7 +123,9 @@ export async function submitAnswer(
   if (!question) throw new ToeicError("NOT_FOUND", "Question not found");
 
   const graded = gradeAnswer(question, input.choiceId);
-  const existing = doc.answers.filter((a) => a.questionId !== input.questionId);
+  const existing = (doc.answers ?? []).filter(
+    (a: { questionId?: string }) => a.questionId !== input.questionId,
+  );
   existing.push(graded);
   doc.answers = existing;
   await doc.save();
@@ -148,7 +146,13 @@ export async function finishAttempt(
   if (!doc) throw new ToeicError("NOT_FOUND", "Attempt not found or already completed");
 
   const questions = await getQuestionsForAttempt(doc.questionIds);
-  const answers = doc.answers.map((a) => ({
+  type AnswerDoc = {
+    questionId?: string;
+    choiceId?: string;
+    isCorrect?: boolean;
+    explainWhy?: string;
+  };
+  const answers: ToeicAnswer[] = (doc.answers ?? []).map((a: AnswerDoc) => ({
     questionId: a.questionId ?? "",
     choiceId: a.choiceId ?? "",
     isCorrect: a.isCorrect ?? false,

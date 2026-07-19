@@ -52,7 +52,6 @@ export async function getLimitStatus(userId: string) {
   const isPaid = tier === "paid";
   const diagnosticCompleted = await hasCompletedDiagnostic(userId);
   const mocksUsedThisMonth = await getMonthlyMockCount(userId);
-  const mockLimit = isPaid ? mocksUsedThisMonth : FREE_TOEIC_MOCKS_PER_MONTH;
 
   return {
     diagnosticCompleted,

@@ -1,4 +1,3 @@
-import { NextResponse } from "next/server";
 import { getAuthUserId, unauthorized } from "@/lib/api/auth";
 import { ok } from "@/lib/api/response";
 import { getLimits } from "@/lib/modules/toeic";

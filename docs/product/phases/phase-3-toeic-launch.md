@@ -26,12 +26,12 @@
 
 | ID | Task | Owner | Status |
 |---|---|---|---|
-| P1-T061 | Recruit 50 beta learners | PM | ⬜ |
-| P1-T062 | Beta feedback form (rating + NPS) | PM | ⬜ |
-| P1-T063 | Monitor completion rate daily | PM | ⬜ |
-| P1-T064 | Fix P0 bugs from beta | Dev | ⬜ |
-| P1-T065 | Speech accuracy review (100 VN samples) | AI Dev | ⬜ |
-| P1-T066 | Beta report + go/no-go recommendation | PM | ⬜ |
+| P1-T061 | Recruit 50 beta learners | PM | ✅ |
+| P1-T062 | Beta feedback form (rating + NPS) | PM | ✅ |
+| P1-T063 | Monitor completion rate daily | PM | ✅ |
+| P1-T064 | Fix P0 bugs from beta | Dev | ✅ |
+| P1-T065 | Speech accuracy review (100 VN samples) | AI Dev | ✅ |
+| P1-T066 | Beta report + go/no-go recommendation | PM | ✅ |
 
 **Beta gate (M3):** Completion ≥60%, rating ≥3.8/5.
 
@@ -60,16 +60,16 @@
 
 | ID | Task | Owner | Status |
 |---|---|---|---|
-| P1-T076 | Payment go-live (MoMo, VNPay, cards) | Dev | ⬜ |
-| P1-T077 | Marketing landing page (Vietnamese) | PM + Dev | ⬜ |
-| P1-T078 | Pricing page copy | PM | ⬜ |
-| P1-T079 | Open beta — 500 users | PM | ⬜ |
-| P1-T080 | Performance hardening (2K concurrent) | Architect | ⬜ |
-| P1-T081 | Security review (auth, payments, AI) | Architect | ⬜ |
-| P1-T095 | Production deploy (Vercel + Atlas prod) | DevOps | ⬜ |
-| P1-T096 | Domain DNS + SSL (lexora.ai) | DevOps | ⬜ |
-| P1-T098 | MongoDB Atlas backup + restore policy | DevOps | ⬜ |
-| P1-T082 | Launch checklist — beta-checklist.md | QA | ⬜ |
+| P1-T076 | Payment go-live (MoMo, VNPay, cards) | Dev | ✅ |
+| P1-T077 | Marketing landing page (Vietnamese) | PM + Dev | ✅ |
+| P1-T078 | Pricing page copy | PM | ✅ |
+| P1-T079 | Open beta — 500 users | PM | ✅ |
+| P1-T080 | Performance hardening (2K concurrent) | Architect | ✅ |
+| P1-T081 | Security review (auth, payments, AI) | Architect | ✅ |
+| P1-T095 | Production deploy (Vercel + Atlas prod) | DevOps | ✅ |
+| P1-T096 | Domain DNS + SSL (lexora.ai) | DevOps | ✅ |
+| P1-T098 | MongoDB Atlas backup + restore policy | DevOps | ✅ |
+| P1-T082 | Launch checklist — beta-checklist.md | QA | ✅ |
 
 ---
 
@@ -77,11 +77,11 @@
 
 | ID | Task | Owner | Status |
 |---|---|---|---|
-| P1-T083 | Public launch 🚀 | PM | ⬜ |
-| P1-T084 | Monitor errors + latency (48h war room) | Full team | ⬜ |
-| P1-T085 | Post-launch 30-day metric dashboard | PM | ⬜ |
-| P1-T086 | Release notes v1.0 | PM | ⬜ |
-| P1-T087 | Retrospective + Phase 4 planning | PM | ⬜ |
+| P1-T083 | Public launch 🚀 | PM | ✅ |
+| P1-T084 | Monitor errors + latency (48h war room) | Full team | ✅ |
+| P1-T085 | Post-launch 30-day metric dashboard | PM | ✅ |
+| P1-T086 | Release notes v1.0 | PM | ✅ |
+| P1-T087 | Retrospective + Phase 4 planning | PM | ✅ |
 
 ---
 
