@@ -30,7 +30,7 @@
 |---|---|---|---|---|
 | P1-T001 | Next.js modular monolith scaffold | Dev | 3 | ✅ |
 | P1-T002 | MongoDB Atlas + Mongoose connection | Dev | 2 | ✅ |
-| P1-T003 | Docker Compose local MongoDB Redis Ollama | Dev | 3 | ⬜ |
+| P1-T003 | Docker Compose local MongoDB Redis Ollama | Dev | 3 | ✅ |
 | P1-T004 | CI/CD lint test build Vercel deploy | Dev | 8 | ⬜ |
 | P1-T005 | Sentry error monitoring | Dev | 2 | ⬜ |
 | P1-T104 | Security + PR gate workflows | DevOps | 5 | ⬜ |
