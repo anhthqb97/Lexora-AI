@@ -41,7 +41,7 @@ Start Phase 4 only when:
 | P1C-T03 | Auth flow (SecureStore + JWT) | Dev | ✅ |
 | P1C-T04 | Dashboard screen | Dev | ✅ |
 | P1C-T05 | Speaking Home + session setup | Dev | ✅ |
-| P1C-T06 | Live session (expo-av mic) | Dev | ⬜ |
+| P1C-T06 | Live session (expo-av mic) | Dev | ✅ |
 | P1C-T07 | Session summary screen | Dev | ⬜ |
 | P1C-T08 | TOEIC home + mock exam (read-only MVP) | Dev | ⬜ |
 | P1C-T09 | Push notifications setup (Expo) | Dev | ⬜ |
