@@ -34,7 +34,7 @@
 | P0-T19 | Provision SMS OTP provider (+84) | `P0-T19: provision SMS OTP provider for Vietnam` | Architect | ⬜ |
 | P0-T20 | Production environment specification | `P0-T20: document production environment specification` | Architect | ✅ |
 | P0-T21 | Approve E2E + CI/CD test strategy | `P0-T21: approve E2E and CI CD test strategy` | QA + TL | ✅ |
-| P0-T22 | GitHub repo + branch protection | `P0-T22: setup GitHub repo and branch protection` | Architect | 🔄 pushed — enable branch protection on GitHub |
+| P0-T22 | GitHub repo + branch protection | `P0-T22: setup GitHub repo and branch protection` | Architect | ✅ |
 
 ---
 
@@ -288,15 +288,9 @@
 
 **Repo (canonical):** [https://github.com/anhthqb97/Lexora-AI](https://github.com/anhthqb97/Lexora-AI)
 
-**Status:** Repository created (empty). Remaining setup:
+**Status:** Repository live on `main`. Branch protection: follow [`github-branch-protection.md`](../../engineering/github-branch-protection.md) §2 (GitHub UI — required checks after P1-T004).
 
-**Scope:**
-- Confirm remote: `git@github.com:anhthqb97/Lexora-AI.git` (or HTTPS)
-- Protect `main` — no direct push; require PR + 1 approval
-- Enable required status checks after P1-T004 (`ci.yml`)
-- Add repo URL to `docs/README.md` and root `README.md` (P1-T001)
-
-**DoD:** Team can clone from URL above; `main` protected; CI checks configured when P1-T004 lands.
+**DoD:** Team can clone from URL above; protection runbook committed; CI checks configured when P1-T004 lands.
 
 **Commit:** `P0-T22: setup GitHub repo and branch protection`
 
