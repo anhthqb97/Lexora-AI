@@ -35,7 +35,7 @@
 | P1-T005 | Sentry error monitoring | Dev | 2 | ✅ |
 | P1-T104 | Security + PR gate workflows | DevOps | 5 | ✅ |
 | P1-T088 | Upstash Redis client (`lib/redis`) | Dev | 2 | ✅ |
-| P1-T089 | Health check endpoint | Dev | 1 | ⬜ |
+| P1-T089 | Health check endpoint | Dev | 1 | ✅ |
 | P1-T092 | Structured logging (pino) | Dev | 2 | ⬜ |
 | P1-T006 | Email password register login | Dev | 5 | ⬜ |
 | P1-T007 | Auth.js configuration | Dev | 3 | ⬜ |
