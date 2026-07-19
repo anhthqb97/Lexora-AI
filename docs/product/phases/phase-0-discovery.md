@@ -29,8 +29,8 @@
 | P0-T14 | Provision staging environments | `P0-T14: provision Vercel MongoDB and Redis staging` | Architect | ✅ |
 | P0-T15 | Env vars template + secrets policy | `P0-T15: document env vars and secrets policy` | Architect | ✅ |
 | P0-T16 | Provision Azure Speech resource | `P0-T16: provision Azure Speech Southeast Asia` | Architect | ✅ |
-| P0-T17 | Provision OpenAI org + billing alerts | `P0-T17: provision OpenAI API keys and billing alerts` | Architect + PM | ⬜ |
-| P0-T18 | Provision email provider (auth) | `P0-T18: provision email provider for auth emails` | Architect | ⬜ |
+| P0-T17 | Provision OpenAI org + billing alerts | `P0-T17: provision OpenAI API keys and billing alerts` | Architect + PM | ✅ |
+| P0-T18 | Provision email provider (auth) | `P0-T18: provision email provider for auth emails` | Architect | ✅ |
 | P0-T19 | Provision SMS OTP provider (+84) | `P0-T19: provision SMS OTP provider for Vietnam` | Architect | ⬜ |
 | P0-T20 | Production environment specification | `P0-T20: document production environment specification` | Architect | ✅ |
 | P0-T21 | Approve E2E + CI/CD test strategy | `P0-T21: approve E2E and CI CD test strategy` | QA + TL | ✅ |
@@ -238,7 +238,7 @@
 
 **Scope:** Org account; project API key; monthly spend cap + alert at 80%.
 
-**DoD:** Staging key works; billing alert configured.
+**DoD:** [`openai-provisioning.md`](../../engineering/openai-provisioning.md) — org, staging key, spend cap + 80% alert, curl validation.
 
 **Commit:** `P0-T17: provision OpenAI API keys and billing alerts`
 
