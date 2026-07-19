@@ -80,7 +80,7 @@
 | P1-T023 | Conversation context manager (Redis) | AI Dev | 5 | ✅ |
 | P1-T024 | Paywall component | Dev | 3 | ✅ |
 | P1-T025 | MoMo payment sandbox integration | Dev | 8 | ✅ |
-| P1-T026 | VNPay + card payment sandbox | Dev | 5 | ⬜ |
+| P1-T026 | VNPay + card payment sandbox | Dev | 5 | ✅ |
 | P1-T027 | Settings page (profile, language, billing) | Dev | 3 | ⬜ |
 | P1-T028 | Subscription management page | Dev | 5 | ⬜ |
 | P1-T093 | Uptime + latency monitoring | DevOps | 3 | ⬜ |

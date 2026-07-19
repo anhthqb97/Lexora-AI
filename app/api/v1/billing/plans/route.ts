@@ -1,5 +1,11 @@
-import { notImplemented } from "@/lib/api/response";
+import { getAuthUserId, unauthorized } from "@/lib/api/auth";
+import { ok } from "@/lib/api/response";
+import { getPlans } from "@/lib/modules/billing/service";
 
 export async function GET() {
-  return notImplemented("billing/plans");
+  const userId = await getAuthUserId();
+  if (!userId) return unauthorized();
+
+  const plans = await getPlans();
+  return ok({ data: plans });
 }
