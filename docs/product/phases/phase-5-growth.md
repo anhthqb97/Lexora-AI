@@ -31,7 +31,7 @@
 | P2-T03 | Grammar correction + explain-why (LLM) | AI Dev | ✅ |
 | P2-T04 | Writing evaluation scores | AI Dev | ✅ |
 | P2-T05 | Writing history + dashboard | Dev | ✅ |
-| P2-T06 | AI tutor prompt — Writing | AI Dev | ⬜ |
+| P2-T06 | AI tutor prompt — Writing | AI Dev | ✅ |
 | P2-T07 | QA test plan — Writing | QA | ⬜ |
 
 ### Lexora Business (P2 — Month 2–3)
