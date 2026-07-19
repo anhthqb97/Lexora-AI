@@ -16,7 +16,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     title: "TOEIC Prep",
-    description: "Luyện thi TOEIC với bài họn thích ứng và thi thử",
+    description: "Luyện thi TOEIC với bài học thích ứng và thi thử",
     href: "/toeic",
     badge: "MVP",
     accent: "orange",
@@ -32,7 +32,7 @@ export const PRODUCTS: Product[] = [
     title: "Business English",
     description: "Tiếng Anh công việc — email, họp, thuyết trình",
     href: "/business",
-    badge: "Sắp ra mắt",
+    badge: "Mới",
     accent: "blue",
   },
   {
