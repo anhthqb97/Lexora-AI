@@ -2,7 +2,7 @@
 
 **Feature:** Platform
 **Version:** 1.0
-**Status:** Approved baseline
+**Status:** Finalized v1.0 (P0-T09, 2026-07-19)
 **Last Updated:** 2026-07-19
 
 **Architecture:** Modular monolith (MVP) — see [`architecture-decision-record.md`](architecture-decision-record.md)
@@ -191,3 +191,16 @@ Not a separate deploy in MVP — module inside monolith. Extract to **ai-gateway
 | Data Model | [`data-model.md`](data-model.md) |
 | API Contracts | [`api-contracts.md`](api-contracts.md) |
 | PRD Platform | [`../product/platform/prd-platform.md`](../product/platform/prd-platform.md) |
+
+---
+
+## 10. Finalization (P0-T09)
+
+| Check | Status |
+|---|---|
+| Aligned with ADR-001–009 | ✅ |
+| Pricing / free tier (P0-T06) reflected in billing module | ✅ |
+| Local dev path documented (`local-development.md`) | ✅ |
+| Secrets via env vars only (P0-T15 pending `.env.example`) | ✅ |
+
+**Approver:** Technical Lead · 2026-07-19

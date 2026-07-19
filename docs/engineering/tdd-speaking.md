@@ -2,7 +2,7 @@
 
 **Feature:** Lexora Speaking
 **Version:** 1.0
-**Status:** Approved baseline
+**Status:** Finalized v1.0 (P0-T09, 2026-07-19)
 **Last Updated:** 2026-07-19
 
 **Architecture:** Module inside Next.js monolith (MVP) — `lib/modules/speaking/`
@@ -108,3 +108,16 @@ CREATED → ACTIVE → ENDING → EVALUATING → COMPLETED
 | Speech providers | [`speech-providers.md`](speech-providers.md) |
 | Data Model | [`data-model.md`](data-model.md) |
 | Tutor Prompt | [`../AI/tutor-speaking-prompt.md`](../AI/tutor-speaking-prompt.md) |
+
+---
+
+## 7. Finalization (P0-T09)
+
+| Spike / decision | TDD impact | Status |
+|---|---|---|
+| P0-T02 local speech provider | `SpeechProvider` mock default | ✅ |
+| P0-T03 latency targets | §5 NFR unchanged | ✅ |
+| P0-T05 audio retention (ADR-009) | Transcripts only; raw audio ≤24h | ✅ |
+| P0-T16 Azure deferred | `azure.ts` wired Sprint 3+ | ✅ |
+
+**Approver:** Technical Lead · 2026-07-19
