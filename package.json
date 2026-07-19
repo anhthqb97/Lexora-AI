@@ -19,6 +19,7 @@
     "local:setup": "npm run docker:up && npm run local:wait && npm run local:check",
     "ollama:pull": "bash scripts/ollama-pull-model.sh",
     "db:create-indexes": "npx tsx scripts/create-indexes.ts",
+    "db:seed-toeic": "npx tsx scripts/seed-toeic-questions.ts",
     "test:e2e": "playwright test",
     "test:e2e:smoke": "playwright test e2e/smoke e2e/platform e2e/speaking",
     "test:e2e:ui": "playwright test --ui",
