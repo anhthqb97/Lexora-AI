@@ -1,19 +1,6 @@
-export type ChatMessage = {
-  role: "system" | "user" | "assistant";
-  content: string;
-};
+import type { ChatCompletionOptions, ChatCompletionResult, ChatMessage } from "./client";
 
-export type ChatCompletionOptions = {
-  model?: string;
-  temperature?: number;
-  maxTokens?: number;
-};
-
-export type ChatCompletionResult = {
-  content: string;
-  model: string;
-  usage?: { promptTokens: number; completionTokens: number };
-};
+export type { ChatMessage, ChatCompletionOptions, ChatCompletionResult };
 
 const OPENAI_API_URL = "https://api.openai.com/v1/chat/completions";
 
@@ -25,7 +12,7 @@ export function getOpenAIClient() {
   return { apiKey };
 }
 
-export async function chatCompletion(
+async function chatCompletionDirect(
   messages: ChatMessage[],
   options: ChatCompletionOptions = {},
 ): Promise<ChatCompletionResult> {
@@ -69,11 +56,70 @@ export async function chatCompletion(
   };
 }
 
+async function chatCompletionViaGateway(
+  messages: ChatMessage[],
+  options: ChatCompletionOptions = {},
+): Promise<ChatCompletionResult> {
+  const baseUrl = process.env.AI_GATEWAY_URL?.replace(/\/$/, "");
+  if (!baseUrl) throw new Error("AI_GATEWAY_URL not set");
+
+  const res = await fetch(`${baseUrl}/v1/chat/completions`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      messages,
+      model: options.model,
+      temperature: options.temperature,
+      max_tokens: options.maxTokens,
+    }),
+  });
+
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`AI gateway error: ${res.status} ${err}`);
+  }
+
+  const data = (await res.json()) as {
+    model: string;
+    choices: { message: { content: string } }[];
+    usage?: { prompt_tokens: number; completion_tokens: number };
+  };
+
+  return {
+    content: data.choices[0]?.message?.content ?? "",
+    model: data.model,
+    usage: data.usage
+      ? {
+          promptTokens: data.usage.prompt_tokens,
+          completionTokens: data.usage.completion_tokens,
+        }
+      : undefined,
+  };
+}
+
+export async function chatCompletion(
+  messages: ChatMessage[],
+  options: ChatCompletionOptions = {},
+): Promise<ChatCompletionResult> {
+  if (process.env.AI_GATEWAY_URL) {
+    return chatCompletionViaGateway(messages, options);
+  }
+  return chatCompletionDirect(messages, options);
+}
+
 /** Stub for local dev when OPENAI_API_KEY is missing. */
 export async function chatCompletionOrStub(
   messages: ChatMessage[],
   options?: ChatCompletionOptions,
 ): Promise<ChatCompletionResult> {
+  if (process.env.AI_GATEWAY_URL) {
+    try {
+      return await chatCompletionViaGateway(messages, options);
+    } catch {
+      // fall through to stub/direct
+    }
+  }
+
   if (!process.env.OPENAI_API_KEY) {
     const lastUser = [...messages].reverse().find((m) => m.role === "user");
     return {
@@ -81,5 +127,5 @@ export async function chatCompletionOrStub(
       model: "stub",
     };
   }
-  return chatCompletion(messages, options);
+  return chatCompletionDirect(messages, options ?? {});
 }
