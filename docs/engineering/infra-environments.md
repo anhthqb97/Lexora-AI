@@ -74,7 +74,7 @@ Production deploy requires:
 | Database URI | Vercel env + Atlas IP allowlist | On personnel change |
 | Payment keys | Vercel env; separate sandbox vs prod | Per provider policy |
 
-Local: copy `.env.example` → `.env.local` (gitignored). **Created in P0-T15 / P1-T003 — not in repo yet.**
+Local: copy [`.env.example`](../../.env.example) → `.env.local` (gitignored). Policy: [`secrets-policy.md`](secrets-policy.md) (P0-T15).
 
 Local Docker stack: see [`local-development.md`](local-development.md) — **implemented in P1-T003 only**.
 
@@ -90,7 +90,31 @@ Local Docker stack: see [`local-development.md`](local-development.md) — **imp
 
 ---
 
-## 7. References
+## 8. Production Environment Specification (P0-T20)
+
+**Status:** Spec approved · **Execution:** P1-T095 (Sprint 9)
+
+| Component | Production config |
+|---|---|
+| **App URL** | `https://lexora.ai` (primary) · `https://www.lexora.ai` → redirect |
+| **Hosting** | Vercel Production environment · separate from Preview/Staging |
+| **Region** | Vercel edge + functions nearest Singapore |
+| **MongoDB Atlas** | Dedicated **production** cluster (M10+), region `ap-southeast-1`, IP allowlist Vercel only |
+| **Redis** | Upstash production database · separate from staging |
+| **OpenAI** | Production API key · spend cap enforced (P0-T17) |
+| **Azure Speech** | `southeastasia` · production key separate from staging |
+| **Email / SMS** | Production sender domains verified (P0-T18, P0-T19) |
+| **Payments** | MoMo + VNPay **live** keys (not sandbox) |
+
+**Promotion flow:** Staging validated on `main` → manual **Promote to Production** in Vercel after launch checklist (P1-T082).
+
+**DNS (P1-T096):** `lexora.ai` A/CNAME → Vercel · SSL auto via Vercel.
+
+**Data isolation:** Production cluster name suffix `-prod`; staging `-staging`. No shared databases or API keys.
+
+---
+
+## 9. References
 
 | Document | Link |
 |---|---|
