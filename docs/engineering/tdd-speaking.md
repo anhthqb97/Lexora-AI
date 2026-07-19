@@ -18,7 +18,11 @@ app/(dashboard)/speaking/     ← UI (client components for mic)
 app/api/v1/speaking/          ← Route handlers
 lib/modules/speaking/         ← Session, turn, summary logic
 lib/ai/                       ← OpenAI tutor (→ future ai-gateway-service)
-lib/speech/azure.ts           ← Azure STT + pronunciation (→ future speech-service)
+lib/speech/                     ← SpeechProvider (mock | whisper-local | azure)
+  ├── index.ts                  ← getSpeechProvider()
+  ├── mock.ts                   ← default local + CI
+  ├── whisper-local.ts          ← optional real local STT
+  └── azure.ts                  ← staging/prod (P1-T021, after P0-T16)
 lib/db/                       ← Mongoose models
         ↓
 MongoDB Atlas (speaking_* collections)
@@ -29,7 +33,7 @@ sequenceDiagram
     participant UI as Speaking UI
     participant API as /api/v1/speaking
     participant MOD as lib/modules/speaking
-    participant SP as lib/speech/azure
+    participant SP as lib/speech (provider)
     participant AI as lib/ai
     participant DB as MongoDB
 
@@ -75,7 +79,7 @@ CREATED → ACTIVE → ENDING → EVALUATING → COMPLETED
 
 ## 4. Evaluation Pipeline
 
-1. Aggregate turn scores from Azure + LLM analysis
+1. Aggregate turn scores from SpeechProvider + LLM analysis
 2. `lib/ai` generates explain-why summary from transcript
 3. Store in `speaking_summaries` collection
 4. Return to client (poll if async job > 3s)
@@ -101,5 +105,6 @@ CREATED → ACTIVE → ENDING → EVALUATING → COMPLETED
 |---|---|
 | ADR | [`architecture-decision-record.md`](architecture-decision-record.md) |
 | Feasibility | [`feasibility-speech.md`](feasibility-speech.md) |
+| Speech providers | [`speech-providers.md`](speech-providers.md) |
 | Data Model | [`data-model.md`](data-model.md) |
 | Tutor Prompt | [`../AI/tutor-speaking-prompt.md`](../AI/tutor-speaking-prompt.md) |

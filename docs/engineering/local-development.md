@@ -18,7 +18,7 @@ Every developer can run Lexora on their machine **without cloud dependencies** f
 | MongoDB | Container | Atlas |
 | Redis | Container | Upstash |
 | LLM | Ollama container | OpenAI |
-| Speech | Mock or Azure dev key | Azure Speech |
+| Speech | **Mock** (default) or optional Whisper local — **no Azure** | Azure Speech (P0-T16) |
 | App | `npm run dev` | Vercel |
 
 ---
@@ -55,6 +55,8 @@ MONGODB_URI=mongodb://localhost:27017/lexora
 REDIS_URL=redis://localhost:6379
 OLLAMA_BASE_URL=http://localhost:11434
 OLLAMA_MODEL=llama3.2:3b
+SPEECH_PROVIDER=mock
+# WHISPER_LOCAL_URL=http://localhost:8001   # optional — SPEECH_PROVIDER=whisper-local
 ```
 
 ---
@@ -79,7 +81,7 @@ npm run local:check      # all services OK
 - [ ] MongoDB accepts connection on `27017`
 - [ ] Redis responds to `PING`
 - [ ] Ollama API responds at `http://localhost:11434/api/tags`
-- [ ] Documented in README — no cloud keys required for DB/Redis/LLM
+- [ ] Documented in README — no cloud keys required for DB/Redis/LLM/**Speech (mock)**
 
 ---
 
@@ -104,3 +106,4 @@ npm run local:check      # all services OK
 | Phase 1 Sprint 1 | [`../product/phases/phase-1-mvp-launch.md`](../product/phases/phase-1-mvp-launch.md) |
 | Tech stack §9–10 | [`tech-stack.md`](tech-stack.md) |
 | ADR-003 LLM | [`architecture-decision-record.md`](architecture-decision-record.md) |
+| Speech providers | [`speech-providers.md`](speech-providers.md) |

@@ -126,18 +126,27 @@ Each module in `lib/modules/{name}` becomes a candidate service with unchanged A
 
 ---
 
-## ADR-006: Speech Engine — Azure for MVP
+## ADR-006: Speech Engine — Azure Production, Local-First Dev
 
 ### Decision
 
-**Azure Speech Services** (Southeast Asia) for STT + Pronunciation Assessment in MVP.
+**Production / staging (Sprint 3+):** **Azure Speech Services** (Southeast Asia) for STT + Pronunciation Assessment.
 
-Whisper self-hosted deferred to Phase 2.
+**Local dev / CI / Phase 0:** **`SpeechProvider` abstraction** with **`mock`** (default) and optional **`whisper-local`** — **no Azure keys required**.
+
+Whisper self-hosted for production deferred to Phase 2+.
 
 ### Rationale
 
-- Feasibility spike targets VN-accent accuracy on Azure
-- Integrated pronunciation scoring vs DIY Whisper pipeline
+- Team can build and test speaking flows locally before Azure provisioning (P0-T16)
+- E2E and CI use `SPEECH_PROVIDER=mock` — no cloud dependency
+- Azure remains best choice for VN-accent pronunciation assessment in beta/production
+- Integrated pronunciation scoring vs DIY Whisper pipeline for **production only**
+
+### Implementation
+
+- Spec: [`speech-providers.md`](speech-providers.md)
+- Azure VN spike (100 samples) runs **before closed beta**, not Phase 0 gate
 - Split **speech-service** only if latency or cost requires it
 
 ---

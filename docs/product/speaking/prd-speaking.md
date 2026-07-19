@@ -293,7 +293,7 @@ Decisions below are approved by PO/PM/TL for MVP. Formal sign-off at M0 (P0-T12)
 |---|---|---|---|
 | 1 | Free tier limits | 3 speaking sessions/week; 1 TOEIC mock/month | brand.md, platform PRD |
 | 2 | Vietnamese help default | ON for A1–A2, OFF for B1+ | tutor-speaking-prompt.md |
-| 3 | Speech engine | Azure Speech Services (STT + pronunciation) | ADR-006; P0-T02 validates |
+| 3 | Speech engine | Local mock (dev) · Azure STT + pronunciation (staging/prod) | ADR-006; [`speech-providers.md`](../../engineering/speech-providers.md) |
 | 4 | Audio storage | Transcripts + scores only; delete raw audio after 24h | ADR-002; PDPD |
 | 5 | TOEIC speaking in Speaking app | P1 only: picture description + respond to questions | content-map-speaking.md |
 
@@ -305,7 +305,7 @@ All five MVP decisions are locked in §10 above. No open product questions remai
 |---|---|---|
 | 1 | Free tier limits | 3 sessions/week; 1 TOEIC mock/month (platform-wide) |
 | 2 | Vietnamese help default | ON A1–A2, OFF B1+ |
-| 3 | Speech engine | Azure Speech Services — validated in P0-T02 spike |
+| 3 | Speech engine | Local mock for dev; Azure for staging/prod (P0-T16) |
 | 4 | Audio retention | Transcripts + scores only; raw audio deleted after 24h |
 | 5 | TOEIC speaking scope | P1: picture description + Q&A only (not full TOEIC speaking exam) |
 

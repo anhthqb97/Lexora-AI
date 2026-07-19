@@ -20,7 +20,8 @@ Evolutionary architecture: **MVP modular monolith now**, **target microservices 
 | **App** | Next.js 15 — one deploy | Next.js web + Expo mobile + services |
 | **Database** | MongoDB Atlas — one cluster | Same; optional split by service |
 | **LLM** | OpenAI GPT-4o (prod) + Ollama (dev) | Self-hosted vLLM + LiteLLM |
-| **Speech** | Azure Speech Services | Azure; Whisper self-hosted optional |
+| **Speech (local)** | Mock + optional Whisper local | No Azure keys |
+| **Speech (staging/prod)** | Azure Speech Services | P0-T16 · Sprint 3+ |
 | **Mobile** | Responsive web only | Expo native app (Phase 1c) |
 | **Hosting** | Vercel + Atlas + Upstash | Docker + K8s when MAL > 50K |
 | **Team fit** | Small team, 20-week launch | Scale, privacy, App Store |
@@ -42,7 +43,8 @@ Evolutionary architecture: **MVP modular monolith now**, **target microservices 
 | **Auth** | Auth.js v5 — email, OTP, Google, Facebook |
 | **LLM (MVP)** | **OpenAI GPT-4o** — server-side only |
 | **LLM (local dev)** | Ollama (`qwen2.5:14b` or `llama3.1:8b`) |
-| **Speech** | Azure Speech Services (STT + pronunciation) |
+| **Speech (local dev)** | Mock (default) · optional faster-whisper Docker | [`speech-providers.md`](speech-providers.md) |
+| **Speech (staging/prod)** | Azure Speech Services (STT + pronunciation) | P0-T16 · P1-T021 |
 | **Payments** | MoMo + VNPay |
 | **Email / SMS** | Resend + ESMS.vn |
 | **Hosting** | Vercel |
@@ -259,9 +261,13 @@ OPENAI_API_KEY=
 # AI — local dev only
 OLLAMA_BASE_URL=http://localhost:11434
 
-# Speech
-AZURE_SPEECH_KEY=
-AZURE_SPEECH_REGION=southeastasia
+# Speech — local dev (no Azure)
+SPEECH_PROVIDER=mock          # mock | whisper-local | azure
+
+# Speech — staging/prod (P0-T16, Sprint 3+)
+# AZURE_SPEECH_KEY=
+# AZURE_SPEECH_REGION=southeastasia
+# WHISPER_LOCAL_URL=http://localhost:8001   # if SPEECH_PROVIDER=whisper-local
 
 # Payments
 MOMO_PARTNER_CODE=
@@ -281,7 +287,7 @@ NEXT_PUBLIC_APP_URL=https://lexora.ai
 |---|---|---|
 | Day 1–14 | Spikes, PRD sign-off, monolith scaffold | Next.js + MongoDB |
 | Day 15–60 | Speaking MVP, auth, billing sandbox | Modular monolith |
-| Day 61–90 | Closed beta 50 users, TOEIC diagnostic | OpenAI + Azure |
+| Day 61–90 | Closed beta 50 users, TOEIC diagnostic | OpenAI + Azure (after P0-T16) |
 | Day 91+ | Extract ai-gateway; evaluate vLLM; Expo if metrics pass | First microservice |
 
 ---

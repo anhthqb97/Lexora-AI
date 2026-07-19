@@ -92,7 +92,7 @@ gantt
 
 | ID | Milestone | Target | Gate |
 |---|---|---|---|
-| M0 | Discovery complete | Week 2 | Speech spike ≥85%, PRD signed |
+| M0 | Discovery complete | Week 2 | Local speech provider approved (P0-T02); PRD signed |
 | M1 | Platform ready | Week 6 | Auth + AI pipeline in staging |
 | M2 | Speaking MVP | Week 12 | E2E session, QA sign-off |
 | M3 | Closed beta pass | Week 14 | Completion ≥60%, rating ≥3.8/5 |
@@ -155,7 +155,7 @@ Phase 5 (Growth) ── requires MAL traction
 Phase 6 (Scale) ── requires B2B proof + revenue
 ```
 
-**Critical path:** Speech spike (Week 1) → AI pipeline (Week 7) → Speaking E2E (Week 12) → Beta (Week 14) → Launch (Week 20)
+**Critical path:** Local speech provider (P0-T02) → AI pipeline (Week 7) → Speaking E2E (Week 12) → Azure VN spike (pre-beta) → Beta (Week 14) → Launch (Week 20)
 
 ---
 

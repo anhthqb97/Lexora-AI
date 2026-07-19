@@ -14,7 +14,7 @@
 | ID | Task | Commit message | Owner | Status |
 |---|---|---|---|---|
 | P0-T01 | Resolve Speaking PRD open questions | `P0-T01: resolve speaking PRD open questions` | PM | ✅ |
-| P0-T02 | Speech engine spike | `P0-T02: complete Azure speech engine spike` | AI + Architect | ⬜ |
+| P0-T02 | Local speech provider (no Azure) | `P0-T02: add local speech provider for dev testing` | AI + Architect | ✅ |
 | P0-T03 | Latency test 4G Vietnam | `P0-T03: add latency test report for 4G Vietnam` | AI Engineer | ⬜ |
 | P0-T04 | Cost model per session | `P0-T04: document unit economics per speaking session` | PM + Architect | ⬜ |
 | P0-T05 | Audio storage + legal decision | `P0-T05: record audio storage privacy decision` | Architect + Legal | ⬜ |
@@ -62,18 +62,18 @@
 
 ---
 
-### P0-T02 — Speech engine spike
+### P0-T02 — Local speech provider (no Azure)
 
 | Field | Value |
 |---|---|
 | **Owner** | AI Engineer + Architect |
-| **Branch** | `docs/P0-T02-speech-spike` |
+| **Branch** | `main` (Phase 0) |
 
-**Scope:** Execute spike in `docs/engineering/feasibility-speech.md` with 100 VN-accent samples.
+**Scope:** Document and approve local speech testing — [`speech-providers.md`](../../engineering/speech-providers.md). Default `SPEECH_PROVIDER=mock`. Optional `whisper-local`. **Azure deferred to P0-T16 / Sprint 3.**
 
-**DoD:** WER ≤15%; pronunciation correlation ≥0.75; results documented in feasibility memo.
+**DoD:** Local dev path documented; no Azure keys required for Phase 0; feasibility memo updated.
 
-**Commit:** `P0-T02: complete Azure speech engine spike`
+**Commit:** `P0-T02: add local speech provider for dev testing`
 
 ---
 
@@ -226,9 +226,9 @@
 
 ### P0-T16 — Azure Speech provisioning
 
-**Scope:** Azure Speech resource in **Southeast Asia**; STT + pronunciation assessment enabled; keys in staging vault.
+**Scope:** Azure Speech resource in **Southeast Asia** — **before Sprint 3 staging** (not Phase 0). STT + pronunciation assessment; keys in staging vault. Run 100-sample VN spike **before closed beta**.
 
-**DoD:** Test API call returns transcript from sample audio.
+**DoD:** Test API call returns transcript from sample audio; VN spike scheduled.
 
 **Commit:** `P0-T16: provision Azure Speech Southeast Asia`
 

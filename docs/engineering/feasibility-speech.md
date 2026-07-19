@@ -10,9 +10,9 @@
 
 ## 1. Objective
 
-Evaluate speech-to-text (STT) and pronunciation assessment options for Vietnamese-accent English before Sprint 3.
+Evaluate speech options for Vietnamese-accent English. **Phase 0:** local test path without Azure. **Pre-beta:** Azure validation.
 
-**Decision required:** Build vs buy — Azure Speech recommended for MVP (see ADR-006).
+**Decision required:** `SpeechProvider` abstraction — mock local, Azure for staging/prod (see ADR-006).
 
 **Architecture context:** [`architecture-decision-record.md`](architecture-decision-record.md)
 
@@ -33,14 +33,29 @@ Evaluate speech-to-text (STT) and pronunciation assessment options for Vietnames
 
 ## 3. Spike Test Plan
 
-### 3.1 Sample set
+### 3.0 Phase 0 — Local spike (P0-T02, no Azure)
+
+| Step | Action | Pass |
+|---|---|---|
+| 1 | Approve [`speech-providers.md`](speech-providers.md) | Doc signed |
+| 2 | Default `SPEECH_PROVIDER=mock` in `.env.example` | No Azure keys for dev |
+| 3 | Define 10 mock VN-accent phrase fixtures | E2E can run |
+| 4 | Optional: faster-whisper Docker for real local STT | Documented |
+
+**Phase 0 pass:** Local dev + CI speaking smoke works **without Azure**.
+
+### 3.1 Pre-beta — Azure validation (before Sprint 3 / closed beta)
+
+Requires P0-T16 (Azure provisioned). **Not a Phase 0 blocker.**
+
+**Sample set:**
 
 - **100 audio clips** from Vietnamese English speakers
 - Levels: 20 A1, 30 A2, 30 B1, 15 B2, 5 C1
 - Content: read-aloud + spontaneous (30 sec each)
 - Record on mobile (iOS Safari, Android Chrome) — real conditions
 
-### 3.2 Metrics
+### 3.2 Pass metrics (Azure pre-beta)
 
 | Metric | Pass threshold |
 |---|---|
@@ -50,7 +65,7 @@ Evaluate speech-to-text (STT) and pronunciation assessment options for Vietnames
 | End-to-end latency (full evaluation) | ≤5s p95 |
 | Uptime during 1-week trial | ≥99% |
 
-### 3.3 Test procedure
+### 3.3 Azure test procedure
 
 1. Record 100 samples via test web app
 2. Run through Azure Speech STT + Pronunciation Assessment
@@ -64,10 +79,12 @@ Evaluate speech-to-text (STT) and pronunciation assessment options for Vietnames
 
 ```
 Learner mic → WebRTC/MediaRecorder → Backend API
-  → Azure Speech (STT + Pronunciation)
+  → SpeechProvider (mock | whisper-local | azure)
   → Transcript + scores → LLM Gateway (conversation)
   → Response → Frontend
 ```
+
+**Local:** `SPEECH_PROVIDER=mock` (default). **Staging/prod:** `azure` after P0-T16.
 
 **Audio storage (proposed):** Transcripts + scores only; raw audio deleted after 24h processing window.
 
@@ -101,19 +118,21 @@ Acceptable if LTV:CAC ≥6:1 per brand targets.
 
 | # | Question | Proposed answer | Status |
 |---|---|---|---|
-| 1 | Engine choice | Azure Speech | ✅ Approved (ADR-006) |
+| 1 | Engine choice (prod) | Azure Speech | ✅ Approved (ADR-006) |
+| 1b | Local dev engine | Mock + optional Whisper local | ✅ Approved (P0-T02) |
 | 2 | Raw audio storage | No — transcript + scores only | ✅ Approved |
 | 3 | Fallback if mic fails | Text input mode | ✅ Approved |
-| 4 | Region | Azure Southeast Asia | ⏳ Confirm in spike |
+| 4 | Region | Azure Southeast Asia | ⏳ Confirm in pre-beta spike (P0-T16) |
 
 ---
 
 ## 8. Next Steps
 
-- [ ] Execute spike with 100 VN-accent samples
-- [ ] Legal review audio retention policy
-- [ ] Architect sign-off on SpeechProvider abstraction
-- [ ] Update [`tdd-speaking.md`](tdd-speaking.md) with final decision
+- [x] Document local `SpeechProvider` — [`speech-providers.md`](speech-providers.md) (P0-T02)
+- [ ] Add mock fixtures for 10 VN-accent phrases (P1-T021)
+- [ ] Legal review audio retention policy (P0-T05)
+- [ ] Azure VN spike 100 samples — **before closed beta** (after P0-T16)
+- [ ] Update [`tdd-speaking.md`](tdd-speaking.md) with provider factory (P1-T021)
 
 ---
 

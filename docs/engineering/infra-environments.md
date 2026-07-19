@@ -13,8 +13,8 @@
 
 | Environment | Purpose | Hosting | Database | Redis | LLM | Speech |
 |---|---|---|---|---|---|---|
-| **Local** | Developer machines | `npm run dev` + Docker Compose | MongoDB 7 (container) | Redis 7 (container) | Ollama (container) | Azure (dev key) or mock |
-| **Staging** | QA, demos, beta | Vercel preview + `main` branch | Atlas **staging** cluster | Upstash staging | OpenAI (staging key) | Azure Southeast Asia |
+| **Local** | Developer machines | `npm run dev` + Docker Compose | MongoDB 7 (container) | Redis 7 (container) | Ollama (container) | Mock / optional Whisper |
+| **Staging** | QA, demos, beta | Vercel preview + `main` branch | Atlas **staging** cluster | Upstash staging | OpenAI (staging key) | Azure (after P0-T16) |
 | **Production** | Public users | Vercel production | Atlas **production** cluster | Upstash production | OpenAI (prod key) | Azure Southeast Asia |
 
 **Rule:** Staging and production use **separate** Atlas clusters and API keys. Never point staging at prod data.
@@ -30,7 +30,7 @@
 | P0-T14 | MongoDB Atlas staging | Region: Singapore (ap-southeast-1) |
 | P0-T14 | Upstash Redis staging | REST API enabled |
 | P0-T15 | `.env.example` | All vars documented; no secrets in git |
-| P0-T16 | Azure Speech | Region: `southeastasia`; STT + pronunciation |
+| P0-T16 | Azure Speech | Region: `southeastasia`; STT + pronunciation — **before Sprint 3 staging**; VN spike pre-beta |
 | P0-T17 | OpenAI | Spend cap + 80% billing alert |
 | P0-T18 | Email (Resend/SendGrid) | Verified sender domain |
 | P0-T19 | SMS OTP (+84) | Vietnam delivery tested |
