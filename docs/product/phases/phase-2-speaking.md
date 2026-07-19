@@ -48,7 +48,7 @@
 |---|---|---|---|---|
 | P1-T039  Pronunciation scoring per turn | AI Dev | 8 | ✅ |
 | P1-T040  Fluency scoring (pace, fillers) | AI Dev | 5 | ✅ |
-| P1-T041 | Grammar scoring | AI Dev | 5 | ⬜ |
+| P1-T041  Grammar scoring | AI Dev | 5 | ✅ |
 | P1-T042 | Vocabulary scoring | AI Dev | 5 | ⬜ |
 | P1-T043 | Confidence score aggregation | AI Dev | 3 | ⬜ |
 | P1-T044 | Top 3 improvement areas | AI Dev | 3 | ⬜ |
