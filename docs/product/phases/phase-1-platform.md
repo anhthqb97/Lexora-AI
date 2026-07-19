@@ -33,7 +33,7 @@
 | P1-T003 | Docker Compose local MongoDB Redis Ollama | Dev | 3 | ✅ |
 | P1-T004 | CI/CD lint test build Vercel deploy | Dev | 8 | ✅ |
 | P1-T005 | Sentry error monitoring | Dev | 2 | ⬜ |
-| P1-T104 | Security + PR gate workflows | DevOps | 5 | ⬜ |
+| P1-T104 | Security + PR gate workflows | DevOps | 5 | ✅ |
 | P1-T088 | Upstash Redis client (`lib/redis`) | Dev | 2 | ⬜ |
 | P1-T089 | Health check endpoint | Dev | 1 | ⬜ |
 | P1-T092 | Structured logging (pino) | Dev | 2 | ⬜ |

@@ -1,0 +1,32 @@
+name: PR Gate
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  validate:
+    name: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR title
+        run: |
+          TITLE="${{ github.event.pull_request.title }}"
+          echo "$TITLE" | grep -qE '^(P0-T[0-9]+|P1-T[0-9]+|P1C-T[0-9]+|P2-T[0-9]+|P3-T[0-9]+): [a-z0-9][a-z0-9 /-]{2,71}$' \
+            || (echo "PR title must match task-id format" && exit 1)
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate commit messages
+        run: |
+          BASE="${{ github.event.pull_request.base.sha }}"
+          HEAD="${{ github.event.pull_request.head.sha }}"
+          REGEX='^(P0-T[0-9]+|P1-T[0-9]+|P1C-T[0-9]+|P2-T[0-9]+|P3-T[0-9]+): [a-z0-9][a-z0-9 /-]{2,71}$'
+          FORBIDDEN='Co-authored-by:|Generated-by|Created-with|AI-assisted'
+          git log --format=%s "${BASE}..${HEAD}" | while read -r msg; do
+            [ -z "$msg" ] && continue
+            echo "$msg" | grep -qE "$REGEX" || { echo "Invalid commit: $msg"; exit 1; }
+            echo "$msg" | grep -qiE "$FORBIDDEN" && { echo "Forbidden pattern in: $msg"; exit 1; }
+          done
