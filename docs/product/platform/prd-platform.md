@@ -98,7 +98,7 @@ All Lexora learners — students, professionals, job seekers — share the same 
 | PL-18 | Paywall when free limit reached | P0 |
 | PL-19 | Invoice/receipt email in Vietnamese | P1 |
 
-**Proposed free tier:** 3 speaking sessions/week; TOEIC diagnostic free; paid unlocks unlimited.
+**Free tier (locked P0-T06):** See [`pricing-spec.md`](../pricing-spec.md) — 3 speaking sessions/week; 1 TOEIC mock/month; diagnostic once free.
 
 ### 3.4 Dashboard & Navigation
 

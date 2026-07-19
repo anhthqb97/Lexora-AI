@@ -249,7 +249,7 @@ Avoid overly academic or technical language when communicating with learners.
 * Speech and pronunciation evaluation
 * Writing correction with explanations
 * Detailed progress analytics
-* Affordable subscription plans
+* Affordable subscription plans — **Free** (3 speaking sessions/week, 1 TOEIC mock/month) · **Pro** 299,000 VND/month (see [`pricing-spec.md`](pricing-spec.md))
 * Modern SaaS architecture
 * Expandable beyond TOEIC
 

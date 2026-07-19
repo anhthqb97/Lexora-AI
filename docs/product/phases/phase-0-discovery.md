@@ -18,7 +18,7 @@
 | P0-T03 | Latency test 4G Vietnam | `P0-T03: add latency test report for 4G Vietnam` | AI Engineer | ✅ |
 | P0-T04 | Cost model per session | `P0-T04: document unit economics per speaking session` | PM + Architect | ✅ |
 | P0-T05 | Audio storage + legal decision | `P0-T05: record audio storage privacy decision` | Architect + Legal | ✅ |
-| P0-T06 | Define free tier limits | `P0-T06: define free tier limits in pricing spec` | PM | ⬜ |
+| P0-T06 | Define free tier limits | `P0-T06: define free tier limits in pricing spec` | PM | ✅ |
 | P0-T07 | Approve UX wireframe specs | `P0-T07: approve UX wireframe specs` | PM + Designer | ⬜ |
 | P0-T08 | Approve workflow diagrams | `P0-T08: approve workflow overview detail diagrams` | PM + Architect | ⬜ |
 | P0-T09 | Finalize TDD platform and speaking | `P0-T09: finalize platform and speaking TDD` | Architect | ⬜ |
