@@ -39,7 +39,7 @@
 | P1-T092 | Structured logging (pino) | Dev | 2 | ✅ |
 | P1-T006 | Email password register login | Dev | 5 | ✅ |
 | P1-T007 | Auth.js configuration | Dev | 3 | ✅ |
-| P1-T008 | Design system Tailwind shadcn | Dev | 3 | ⬜ |
+| P1-T008 | Design system Tailwind shadcn | Dev | 3 | ✅ |
 
 **Demo:** User registers and logs in on staging.
 
