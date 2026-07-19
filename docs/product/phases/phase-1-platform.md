@@ -54,7 +54,7 @@
 | P1-T011 | User profile module (`lib/modules/user`) | Dev | 3 | ✅ |
 | P1-T012 | Onboarding: goal selection | Dev | 3 | ✅ |
 | P1-T013 | Onboarding: level selection (A1–C1) | Dev | 2 | ✅ |
-| P1-T014 | Responsive dashboard layout (VI UI) | Dev | 5 | ⬜ |
+| P1-T014 | Responsive dashboard layout (VI UI) | Dev | 5 | ✅ |
 | P1-T015 | Product cards (TOEIC, Speaking, etc.) | Dev | 3 | ⬜ |
 | P1-T016 | PostHog analytics events schema | Dev | 3 | ⬜ |
 | P1-T017 | Free vs paid tier in MongoDB | Dev | 3 | ⬜ |
