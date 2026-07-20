@@ -37,7 +37,8 @@ function ReferralSection() {
   return (
     <>
       <p className="text-sm text-gray-600">
-        Đã mời: <strong>{signupCount}</strong> người · Phần thưởng: <strong>{rewardsGranted}</strong>
+        Đã mời: <strong>{signupCount}</strong> người · Phần thưởng:{" "}
+        <strong>{rewardsGranted}</strong>
       </p>
       <Input value={inviteUrl} readOnly className="text-xs" />
       <Button
