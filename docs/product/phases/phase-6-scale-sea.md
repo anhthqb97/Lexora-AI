@@ -42,7 +42,7 @@
 |---|---|---|---|
 | P3-T10 | PRD Kids + COPPA/PDPD minors compliance | PM + Legal | ✅ |
 | P3-T11 | Age-gated UI + parental consent | Dev | ✅ |
-| P3-T12 | Game-based learning modules | Dev + Content | ⬜ |
+| P3-T12 | Game-based learning modules | Dev + Content | ✅ |
 | P3-T13 | Kids AI tutor prompt (age-appropriate) | AI Dev | ⬜ |
 
 ---
