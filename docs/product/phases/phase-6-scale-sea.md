@@ -26,7 +26,7 @@
 |---|---|---|---|
 | P3-T01 | PRD Enterprise finalization | PM | ✅ |
 | P3-T02 | Corporate admin dashboard | Dev | ✅ |
-| P3-T03 | Employee progress + HR reporting | Dev | ⬜ |
+| P3-T03 | Employee progress + HR reporting | Dev | ✅ |
 | P3-T04 | Bulk licensing + invoicing | Dev | ⬜ |
 | P3-T05 | PRD Schools (full LMS) | PM | ⬜ |
 | P3-T06 | Class management + roster import | Dev | ⬜ |
