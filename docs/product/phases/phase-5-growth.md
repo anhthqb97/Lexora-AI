@@ -66,7 +66,7 @@
 
 | ID | Task | Owner | Status |
 |---|---|---|---|
-| P2-T19 | Extract billing-service (microservice) | Architect | ⬜ |
+| P2-T19 | Extract billing-service (microservice) | Architect | ✅ |
 | P2-T20 | English center admin portal (lite) | Dev | ⬜ |
 | P2-T21 | Student assignment (speaking homework) | Dev | ⬜ |
 | P2-T22 | Teacher progress dashboard | Dev | ⬜ |
