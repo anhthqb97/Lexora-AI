@@ -55,7 +55,7 @@
 | P3-T15 | Localization (TH or ID language UI) | Dev | ✅ |
 | P3-T16 | Local payment methods | Dev | ✅ |
 | P3-T17 | Regional Azure/OpenAI deployment | Architect | ✅ |
-| P3-T18 | Local marketing + partnerships | PM | ⬜ |
+| P3-T18 | Local marketing + partnerships | PM | ✅ |
 | P3-T19 | Compliance review per country | Legal | ⬜ |
 
 ---
