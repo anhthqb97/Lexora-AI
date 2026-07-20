@@ -1,13 +1,6 @@
 import { useCallback, useState } from "react";
 import { useFocusEffect, router } from "expo-router";
-import {
-  ActivityIndicator,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import type { SpeakingProgressSummary } from "@lexora/shared";
 import { apiFetch } from "@/lib/api-client";
 

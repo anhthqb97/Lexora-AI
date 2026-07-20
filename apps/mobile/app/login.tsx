@@ -2,14 +2,7 @@
 
 import { useState } from "react";
 import { router } from "expo-router";
-import {
-  ActivityIndicator,
-  Pressable,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
+import { ActivityIndicator, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { loginWithCredentials } from "@/lib/api-client";
 
 export default function LoginScreen() {
@@ -51,7 +44,11 @@ export default function LoginScreen() {
       />
       {error ? <Text style={styles.error}>{error}</Text> : null}
       <Pressable style={styles.button} onPress={handleLogin} disabled={loading}>
-        {loading ? <ActivityIndicator color="#fff" /> : <Text style={styles.buttonText}>Sign in</Text>}
+        {loading ? (
+          <ActivityIndicator color="#fff" />
+        ) : (
+          <Text style={styles.buttonText}>Sign in</Text>
+        )}
       </Pressable>
     </View>
   );
@@ -59,7 +56,13 @@ export default function LoginScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: "center", padding: 24, backgroundColor: "#f8fafc" },
-  title: { fontSize: 28, fontWeight: "700", color: "#1e3a5f", marginBottom: 24, textAlign: "center" },
+  title: {
+    fontSize: 28,
+    fontWeight: "700",
+    color: "#1e3a5f",
+    marginBottom: 24,
+    textAlign: "center",
+  },
   input: {
     borderWidth: 1,
     borderColor: "#cbd5e1",

@@ -19,6 +19,7 @@ export async function startBusinessScenario(userId: string, scenarioId: string) 
   return createSession(userId, {
     type: "scenario",
     scenarioId: scenario.id,
+    durationMinutes: 10,
   });
 }
 
@@ -34,7 +35,7 @@ export async function listBusinessProgress(userId: string): Promise<BusinessSess
         scenarioId: s.scenarioId ?? "",
         scenarioTitle: scenario?.titleVi ?? s.scenarioId ?? "",
         formalToneScore: 75,
-        completedAt: s.endedAt ?? s.createdAt,
+        completedAt: (s.endedAt ?? s.createdAt).toISOString(),
       };
     });
 }

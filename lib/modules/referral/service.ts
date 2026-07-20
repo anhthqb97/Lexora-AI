@@ -19,9 +19,22 @@ const ReferralSignupSchema = new Schema(
   { timestamps: true },
 );
 
+const ReferralRewardSchema = new Schema(
+  {
+    referrerUserId: { type: Schema.Types.ObjectId, required: true, index: true },
+    referredUserId: { type: Schema.Types.ObjectId, required: true },
+    rewardType: { type: String, enum: ["pro_days"], default: "pro_days" },
+    rewardValue: { type: Number, default: 7 },
+    status: { type: String, enum: ["pending", "granted"], default: "pending" },
+  },
+  { timestamps: true },
+);
+
 export const ReferralCodeModel = models.ReferralCode ?? model("ReferralCode", ReferralCodeSchema);
 export const ReferralSignupModel =
   models.ReferralSignup ?? model("ReferralSignup", ReferralSignupSchema);
+export const ReferralRewardModel =
+  models.ReferralReward ?? model("ReferralReward", ReferralRewardSchema);
 
 function generateCode(): string {
   return crypto.randomBytes(4).toString("hex").toUpperCase();
@@ -31,6 +44,8 @@ export type ReferralStats = {
   code: string;
   inviteUrl: string;
   signupCount: number;
+  rewardsGranted: number;
+  pendingRewards: number;
 };
 
 export async function getOrCreateReferralCode(userId: string): Promise<ReferralStats> {
@@ -46,11 +61,21 @@ export async function getOrCreateReferralCode(userId: string): Promise<ReferralS
     doc = await ReferralCodeModel.create({ userId, code });
   }
   const signupCount = await ReferralSignupModel.countDocuments({ referrerUserId: userId });
+  const rewardsGranted = await ReferralRewardModel.countDocuments({
+    referrerUserId: userId,
+    status: "granted",
+  });
+  const pendingRewards = await ReferralRewardModel.countDocuments({
+    referrerUserId: userId,
+    status: "pending",
+  });
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
   return {
     code: doc.code,
     inviteUrl: `${baseUrl}/register?ref=${doc.code}`,
     signupCount,
+    rewardsGranted,
+    pendingRewards,
   };
 }
 
@@ -64,6 +89,13 @@ export async function recordReferralSignup(referredUserId: string, code: string)
     referrerUserId: referral.userId,
     referredUserId,
     code: referral.code,
+  });
+  await ReferralRewardModel.create({
+    referrerUserId: referral.userId,
+    referredUserId,
+    rewardType: "pro_days",
+    rewardValue: 7,
+    status: "pending",
   });
   return true;
 }

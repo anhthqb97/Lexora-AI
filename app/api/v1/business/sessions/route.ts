@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getAuthUserId, unauthorized } from "@/lib/api/auth";
 import { ok } from "@/lib/api/response";
-import { listBusinessScenarios, startBusinessSession } from "@/lib/modules/business";
+import { listBusinessScenarios, startBusinessScenario } from "@/lib/modules/business";
 
 export async function GET(req: Request) {
   const userId = await getAuthUserId(req);
@@ -14,7 +14,7 @@ export async function POST(req: Request) {
   if (!userId) return unauthorized();
   try {
     const body = await req.json();
-    const session = await startBusinessSession(userId, body.scenarioId ?? "", body.durationMinutes);
+    const session = await startBusinessScenario(userId, body.scenarioId ?? "");
     return ok(session, 201);
   } catch {
     return NextResponse.json(

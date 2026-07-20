@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 
@@ -40,9 +39,12 @@ export function DailyChallengeCard() {
           )}
         </div>
         {!challenge.completedToday && (
-          <Button asChild size="sm">
-            <Link href="/speaking/new?challenge=1">Bắt đầu thử thách</Link>
-          </Button>
+          <Link
+            href="/speaking/new?challenge=1"
+            className="inline-flex h-9 items-center justify-center rounded-md bg-lexora-orange px-3 text-sm font-medium text-white hover:opacity-90"
+          >
+            Bắt đầu thử thách
+          </Link>
         )}
       </CardContent>
     </Card>

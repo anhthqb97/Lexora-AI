@@ -31,7 +31,9 @@ export default function SessionSetupScreen() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    apiFetch<SpeakingTopic[]>("/api/v1/speaking/topics").then(setTopics).catch(() => {});
+    apiFetch<SpeakingTopic[]>("/api/v1/speaking/topics")
+      .then(setTopics)
+      .catch(() => {});
     apiFetch<SpeakingScenario[]>("/api/v1/speaking/scenarios")
       .then(setScenarios)
       .catch(() => {});
@@ -41,16 +43,19 @@ export default function SessionSetupScreen() {
     setLoading(true);
     setError(null);
     try {
-      const session = await apiFetch<{ id: string; greeting?: string }>("/api/v1/speaking/sessions", {
-        method: "POST",
-        body: JSON.stringify({
-          type,
-          durationMinutes: duration,
-          vietnameseHelp,
-          topicId: type === "topic" ? topicId : undefined,
-          scenarioId: type === "scenario" ? scenarioId : undefined,
-        }),
-      });
+      const session = await apiFetch<{ id: string; greeting?: string }>(
+        "/api/v1/speaking/sessions",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            type,
+            durationMinutes: duration,
+            vietnameseHelp,
+            topicId: type === "topic" ? topicId : undefined,
+            scenarioId: type === "scenario" ? scenarioId : undefined,
+          }),
+        },
+      );
       router.push(`/speaking/session/${session.id}/live`);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Failed to start session");
@@ -69,7 +74,9 @@ export default function SessionSetupScreen() {
             style={[styles.chip, type === t.value && styles.chipActive]}
             onPress={() => setType(t.value)}
           >
-            <Text style={[styles.chipText, type === t.value && styles.chipTextActive]}>{t.label}</Text>
+            <Text style={[styles.chipText, type === t.value && styles.chipTextActive]}>
+              {t.label}
+            </Text>
           </Pressable>
         ))}
       </View>
@@ -158,7 +165,12 @@ const styles = StyleSheet.create({
     borderColor: "#e2e8f0",
   },
   optionActive: { borderColor: "#0d9488", backgroundColor: "#f0fdfa" },
-  switchRow: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginTop: 16 },
+  switchRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 16,
+  },
   button: {
     backgroundColor: "#f97316",
     padding: 16,

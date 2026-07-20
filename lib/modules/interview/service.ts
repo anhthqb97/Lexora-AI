@@ -1,56 +1,114 @@
-import mongoose, { Schema, model, models } from "mongoose";
-import { connectDatabase } from "@/lib/db/mongoose";
 import { chatCompletionOrStub } from "@/lib/ai/client";
-import { getQuestions, type InterviewQuestion } from "./content";
+import { connectDatabase } from "@/lib/db/mongoose";
+import { DEFAULT_QUESTIONS_PER_SESSION } from "./constants";
+import { getQuestions, loadQuestionBank } from "./content";
+import { InterviewSessionModel, toInterviewSessionDTO } from "./models";
+import type { InterviewQuestion } from "./types";
 
-const InterviewSessionSchema = new Schema(
-  {
-    userId: { type: Schema.Types.ObjectId, required: true, index: true },
-    industry: { type: String, required: true },
-    questions: [{ id: String, question: String, followUp: String }],
-    answers: [{ questionId: String, answer: String, feedback: String }],
-    status: { type: String, enum: ["active", "completed"], default: "active" },
-  },
-  { timestamps: true },
-);
-
-export const InterviewSessionModel =
-  models.InterviewSession ?? model("InterviewSession", InterviewSessionSchema);
+export class InterviewError extends Error {
+  constructor(
+    public code: string,
+    message: string,
+  ) {
+    super(message);
+  }
+}
 
 export async function startInterview(userId: string, industry: string) {
   await connectDatabase();
-  const questions = getQuestions(industry);
-  if (!questions.length) throw new Error("Invalid industry");
-  const doc = await InterviewSessionModel.create({ userId, industry, questions });
-  return { id: doc._id.toString(), industry, questions };
+  const bank = getQuestions(industry, DEFAULT_QUESTIONS_PER_SESSION);
+  if (!bank.length) throw new InterviewError("INVALID_INDUSTRY", "Unknown industry");
+
+  const doc = await InterviewSessionModel.create({
+    userId,
+    industry,
+    totalQuestions: bank.length,
+    questionIds: bank.map((q) => q.id),
+    currentIndex: 0,
+    status: "in_progress",
+  });
+
+  return { session: toInterviewSessionDTO(doc) };
 }
 
-export async function submitAnswer(
-  userId: string,
-  sessionId: string,
-  questionId: string,
-  answer: string,
-) {
+export async function getInterviewSession(userId: string, sessionId: string) {
   await connectDatabase();
-  const session = await InterviewSessionModel.findOne({ _id: sessionId, userId });
-  if (!session) throw new Error("Session not found");
-  const q = (session.questions as InterviewQuestion[]).find((x) => x.id === questionId);
+  const doc = await InterviewSessionModel.findOne({ _id: sessionId, userId });
+  if (!doc) throw new InterviewError("NOT_FOUND", "Session not found");
+  return toInterviewSessionDTO(doc);
+}
+
+function getQuestionByIndex(
+  industry: string,
+  questionIds: string[],
+  index: number,
+): InterviewQuestion | null {
+  const bank = loadQuestionBank(industry);
+  const id = questionIds[index];
+  return bank.find((q) => q.id === id) ?? bank[index] ?? null;
+}
+
+export async function submitAnswer(userId: string, sessionId: string, transcript: string) {
+  await connectDatabase();
+  const doc = await InterviewSessionModel.findOne({ _id: sessionId, userId });
+  if (!doc) throw new InterviewError("NOT_FOUND", "Session not found");
+  if (doc.status === "completed") {
+    throw new InterviewError("SESSION_COMPLETE", "Interview already completed");
+  }
+
+  const question = getQuestionByIndex(doc.industry, doc.questionIds as string[], doc.currentIndex);
+  if (!question) throw new InterviewError("NO_QUESTION", "No active question");
+
   const result = await chatCompletionOrStub(
     [
       {
         role: "system",
-        content: "Give brief interview feedback: structure, vocabulary, clarity. 2-3 sentences.",
+        content:
+          'Score interview answer 0-100 and give 2-3 sentence feedback. Respond JSON: {"score": number, "feedback": string}',
       },
-      { role: "user", content: `Question: ${q?.question}\nAnswer: ${answer}` },
+      { role: "user", content: `Q: ${question.question}\nA: ${transcript}` },
     ],
-    { maxTokens: 200 },
+    { maxTokens: 250 },
   );
-  session.answers.push({ questionId, answer, feedback: result.content });
-  if (session.answers.length >= session.questions.length) {
-    session.status = "completed";
+
+  let score = 70;
+  let feedback = result.content;
+  try {
+    const parsed = JSON.parse(result.content.match(/\{[\s\S]*\}/)?.[0] ?? "{}") as {
+      score?: number;
+      feedback?: string;
+    };
+    if (parsed.score != null) score = parsed.score;
+    if (parsed.feedback) feedback = parsed.feedback;
+  } catch {
+    /* use raw */
   }
-  await session.save();
-  return { feedback: result.content, completed: session.status === "completed" };
+
+  doc.answers.push({
+    questionId: question.id,
+    transcript,
+    feedback,
+    score,
+  });
+
+  doc.currentIndex += 1;
+  if (doc.currentIndex >= doc.totalQuestions) {
+    doc.status = "completed";
+    doc.completedAt = new Date();
+  }
+  await doc.save();
+
+  const nextQuestion =
+    doc.status === "in_progress"
+      ? getQuestionByIndex(doc.industry, doc.questionIds as string[], doc.currentIndex)
+      : null;
+
+  return {
+    feedback,
+    score,
+    completed: doc.status === "completed",
+    nextQuestion,
+  };
 }
 
-export { getQuestions, listIndustries };
+export { loadQuestionBank, getQuestions, listIndustries } from "./content";

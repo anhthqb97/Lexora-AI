@@ -5,7 +5,7 @@ import { SpeakingError, getSummary } from "@/lib/modules/speaking";
 
 type Params = { params: Promise<{ id: string }> };
 
-export async function GET(_req: Request, { params }: Params) {
+export async function GET(req: Request, { params }: Params) {
   const userId = await getAuthUserId(req);
   if (!userId) return unauthorized();
 

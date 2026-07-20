@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getAuthUserId } from "@/lib/api/auth";
 import { listBusinessProgress, listBusinessScenarios } from "@/lib/modules/business";
@@ -24,9 +23,12 @@ export default async function BusinessPage() {
             </CardHeader>
             <CardContent className="space-y-3">
               <p className="text-sm text-gray-600">{s.description}</p>
-              <Button asChild size="sm">
-                <Link href={`/business/${s.id}`}>Bắt đầu</Link>
-              </Button>
+              <Link
+                href={`/business/${s.id}`}
+                className="inline-flex h-9 items-center justify-center rounded-md bg-lexora-orange px-3 text-sm font-medium text-white hover:opacity-90"
+              >
+                Bắt đầu
+              </Link>
             </CardContent>
           </Card>
         ))}

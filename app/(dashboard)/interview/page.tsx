@@ -18,9 +18,8 @@ export default function InterviewPage() {
     });
     const data = await res.json();
     setLoading(null);
-    if (res.ok) {
-      sessionStorage.setItem(`interview-${data.data.id}`, JSON.stringify(data.data.questions));
-      router.push(`/interview/${data.data.id}`);
+    if (res.ok && data.data?.session?.id) {
+      router.push(`/interview/session/${data.data.session.id}`);
     }
   }
 

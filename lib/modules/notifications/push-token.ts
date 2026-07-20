@@ -19,8 +19,7 @@ const PushTokenSchema = new Schema<IPushToken>(
 
 PushTokenSchema.index({ userId: 1, token: 1 });
 
-export const PushToken =
-  models.PushToken ?? model<IPushToken>("PushToken", PushTokenSchema);
+export const PushToken = models.PushToken ?? model<IPushToken>("PushToken", PushTokenSchema);
 
 export async function registerPushToken(
   userId: string,

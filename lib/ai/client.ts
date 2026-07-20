@@ -1,4 +1,4 @@
-import type { ChatCompletionOptions, ChatCompletionResult, ChatMessage } from "./client";
+import type { ChatCompletionOptions, ChatCompletionResult, ChatMessage } from "./types";
 
 export type { ChatMessage, ChatCompletionOptions, ChatCompletionResult };
 

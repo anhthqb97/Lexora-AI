@@ -2,14 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useLocalSearchParams, router } from "expo-router";
 import { Audio } from "expo-av";
 import * as FileSystem from "expo-file-system";
-import {
-  ActivityIndicator,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import type { SessionWithTurns, TurnResult } from "@lexora/shared";
 import { apiFetch } from "@/lib/api-client";
 
@@ -119,11 +112,7 @@ export default function LiveSessionScreen() {
 
       <View style={styles.controls}>
         {!isRecording ? (
-          <Pressable
-            style={styles.micButton}
-            onPress={startRecording}
-            disabled={processing}
-          >
+          <Pressable style={styles.micButton} onPress={startRecording} disabled={processing}>
             {processing ? (
               <ActivityIndicator color="#fff" />
             ) : (
@@ -149,13 +138,25 @@ const styles = StyleSheet.create({
   content: { padding: 20 },
   center: { flex: 1, justifyContent: "center", alignItems: "center" },
   timer: { textAlign: "center", color: "#64748b", marginBottom: 16 },
-  aiBubble: { backgroundColor: "#fff", borderRadius: 12, padding: 16, marginBottom: 12, borderWidth: 1, borderColor: "#e2e8f0" },
+  aiBubble: {
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: "#e2e8f0",
+  },
   aiLabel: { fontSize: 12, color: "#0d9488", fontWeight: "600", marginBottom: 4 },
   aiText: { fontSize: 16, color: "#1e293b" },
   userBubble: { backgroundColor: "#fef3c7", borderRadius: 12, padding: 16, marginBottom: 12 },
   userLabel: { fontSize: 12, color: "#b45309", fontWeight: "600", marginBottom: 4 },
   controls: { marginTop: 24, alignItems: "center" },
-  micButton: { backgroundColor: "#f97316", paddingVertical: 16, paddingHorizontal: 32, borderRadius: 40 },
+  micButton: {
+    backgroundColor: "#f97316",
+    paddingVertical: 16,
+    paddingHorizontal: 32,
+    borderRadius: 40,
+  },
   recording: { backgroundColor: "#dc2626" },
   micText: { color: "#fff", fontWeight: "600", fontSize: 16 },
   endButton: { marginTop: 24, padding: 12, alignItems: "center" },

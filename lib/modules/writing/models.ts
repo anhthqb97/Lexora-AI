@@ -36,14 +36,25 @@ export const WritingSubmissionModel =
   models.WritingSubmission ?? model("WritingSubmission", WritingSubmissionSchema);
 
 export function toSubmissionDTO(doc: Doc): WritingSubmission {
+  const scores = doc.scores ?? {
+    grammar: 0,
+    clarity: 0,
+    vocabulary: 0,
+    overall: 0,
+  };
+  const corrections = (doc.corrections ?? []).map((c) => ({
+    original: c.original ?? "",
+    corrected: c.corrected ?? "",
+    reason: c.reason ?? "",
+  }));
   return {
     id: doc._id.toString(),
     userId: doc.userId.toString(),
     promptId: doc.promptId,
     content: doc.content,
     wordCount: doc.wordCount,
-    scores: doc.scores,
-    corrections: doc.corrections ?? [],
+    scores,
+    corrections,
     explainWhy: doc.explainWhy,
     createdAt: doc.createdAt,
   };

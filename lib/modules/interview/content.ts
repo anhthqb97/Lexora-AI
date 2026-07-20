@@ -1,23 +1,27 @@
-import itBank from "./content/it.json";
-import hospitalityBank from "./content/hospitality.json";
+import fs from "fs";
+import path from "path";
+import type { InterviewIndustry, InterviewQuestion } from "./types";
 
-export type InterviewQuestion = {
-  id: string;
-  industry: string;
-  question: string;
-  followUp: string;
+const BANK_FILES: Record<InterviewIndustry, string> = {
+  it: "interview-it.json",
+  hospitality: "interview-hospitality.json",
 };
 
-const BANKS: Record<string, InterviewQuestion[]> = {
-  it: itBank as InterviewQuestion[],
-  hospitality: hospitalityBank as InterviewQuestion[],
-};
+function loadFile(industry: InterviewIndustry): InterviewQuestion[] {
+  const filePath = path.join(process.cwd(), "content", BANK_FILES[industry]);
+  const raw = fs.readFileSync(filePath, "utf8");
+  return JSON.parse(raw) as InterviewQuestion[];
+}
 
-export function listIndustries(): string[] {
-  return Object.keys(BANKS);
+export function listIndustries(): InterviewIndustry[] {
+  return ["it", "hospitality"];
+}
+
+export function loadQuestionBank(industry: string): InterviewQuestion[] {
+  if (industry !== "it" && industry !== "hospitality") return [];
+  return loadFile(industry);
 }
 
 export function getQuestions(industry: string, count = 5): InterviewQuestion[] {
-  const bank = BANKS[industry] ?? [];
-  return bank.slice(0, count);
+  return loadQuestionBank(industry).slice(0, count);
 }
