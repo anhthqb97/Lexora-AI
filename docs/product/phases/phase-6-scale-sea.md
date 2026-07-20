@@ -32,7 +32,7 @@
 | P3-T06 | Class management + roster import | Dev | ✅ |
 | P3-T07 | Teacher assignment + grading tools | Dev | ✅ |
 | P3-T08 | School-wide analytics | Dev | ✅ |
-| P3-T09 | SSO / SAML for enterprise | Architect | ⬜ |
+| P3-T09 | SSO / SAML for enterprise | Architect | ✅ |
 
 ---
 
