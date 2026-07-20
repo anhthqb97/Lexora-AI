@@ -58,7 +58,7 @@
 | P2-T15 | Full TOEIC lesson library (100+ lessons) | Content + Dev | ✅ |
 | P2-T16 | Multiple mock exams (3+ forms) | Dev | ✅ |
 | P2-T17 | IELTS diagnostic module | Dev | ✅ |
-| P2-T18 | TOEFL content stub | PM | ⬜ |
+| P2-T18 | TOEFL content stub | PM | ✅ |
 
 ---
 
