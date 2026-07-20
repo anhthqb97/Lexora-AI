@@ -51,7 +51,7 @@
 
 | ID | Task | Owner | Status |
 |---|---|---|---|
-| P3-T14 | Market research: Thailand vs Indonesia vs PH | PM | ⬜ |
+| P3-T14 | Market research: Thailand vs Indonesia vs PH | PM | ✅ |
 | P3-T15 | Localization (TH or ID language UI) | Dev | ⬜ |
 | P3-T16 | Local payment methods | Dev | ⬜ |
 | P3-T17 | Regional Azure/OpenAI deployment | Architect | ⬜ |
