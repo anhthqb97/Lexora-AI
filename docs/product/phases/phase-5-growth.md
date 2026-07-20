@@ -81,7 +81,7 @@
 
 | ID | Task | Owner | Status |
 |---|---|---|---|
-| P2-T27 | Streak + daily goals gamification | Dev | ⬜ |
+| P2-T27 | Streak + daily goals gamification | Dev | ✅ |
 | P2-T28 | Referral program v1 (invite friends) | Dev | ⬜ |
 | P2-T29 | Email/push re-engagement campaigns | PM + Dev | ⬜ |
 | P2-T30 | Advanced analytics (cohorts, funnels) | PM | ⬜ |
