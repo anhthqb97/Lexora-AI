@@ -33,6 +33,8 @@ npm run local:wait
 npm run dev
 ```
 
+For **full** stack (Ollama + ai-gateway + speech-service): `LEXORA_WAIT_FULL=1 npm run local:wait` or use `npm run local:setup`.
+
 ---
 
 ## Services

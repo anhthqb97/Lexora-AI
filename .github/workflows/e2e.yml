@@ -37,6 +37,7 @@ jobs:
         env:
           MONGODB_URI: mongodb://localhost:27017/lexora-e2e
           AUTH_SECRET: e2e-test-secret-min-32-characters-long
+          JWT_SECRET: e2e-test-secret-min-32-characters-long
           UPSTASH_REDIS_REST_URL: http://localhost:6379
           UPSTASH_REDIS_REST_TOKEN: local
 

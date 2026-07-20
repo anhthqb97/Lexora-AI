@@ -66,3 +66,4 @@ jobs:
         env:
           MONGODB_URI: mongodb://localhost:27017/lexora-ci
           AUTH_SECRET: ci-build-secret-min-32-chars-long
+          JWT_SECRET: ci-build-secret-min-32-chars-long
