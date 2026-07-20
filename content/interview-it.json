@@ -1,0 +1,42 @@
+[
+  {
+    "id": "IT-01",
+    "industry": "it",
+    "question": "Tell me about yourself and your technical background.",
+    "questionVi": "Hãy giới thiệu về bản thân và nền tảng kỹ thuật của bạn.",
+    "timeLimitSeconds": 120,
+    "difficulty": "B1"
+  },
+  {
+    "id": "IT-02",
+    "industry": "it",
+    "question": "Describe a challenging bug you fixed recently.",
+    "questionVi": "Mô tả một lỗi khó bạn đã sửa gần đây.",
+    "timeLimitSeconds": 180,
+    "difficulty": "B2"
+  },
+  {
+    "id": "IT-03",
+    "industry": "it",
+    "question": "How do you handle disagreements with teammates on technical decisions?",
+    "questionVi": "Bạn xử lý bất đồng với đồng nghiệp về quyết định kỹ thuật như thế nào?",
+    "timeLimitSeconds": 120,
+    "difficulty": "B2"
+  },
+  {
+    "id": "IT-04",
+    "industry": "it",
+    "question": "Explain a project you are most proud of.",
+    "questionVi": "Giải thích dự án bạn tự hào nhất.",
+    "timeLimitSeconds": 180,
+    "difficulty": "B1–B2"
+  },
+  {
+    "id": "IT-05",
+    "industry": "it",
+    "question": "Where do you see yourself in five years?",
+    "questionVi": "Bạn thấy mình ở đâu sau năm năm?",
+    "timeLimitSeconds": 90,
+    "difficulty": "B1"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "HO-01",
+    "industry": "hospitality",
+    "question": "Why do you want to work in hospitality?",
+    "questionVi": "Tại sao bạn muốn làm việc trong ngành khách sạn?",
+    "timeLimitSeconds": 90,
+    "difficulty": "A2–B1"
+  },
+  {
+    "id": "HO-02",
+    "industry": "hospitality",
+    "question": "How would you handle an angry guest?",
+    "questionVi": "Bạn xử lý khách hàng tức giận như thế nào?",
+    "timeLimitSeconds": 120,
+    "difficulty": "B1"
+  },
+  {
+    "id": "HO-03",
+    "industry": "hospitality",
+    "question": "Describe a time you provided excellent customer service.",
+    "questionVi": "Mô tả lần bạn cung cấp dịch vụ khách hàng xuất sắc.",
+    "timeLimitSeconds": 120,
+    "difficulty": "B1"
+  },
+  {
+    "id": "HO-04",
+    "industry": "hospitality",
+    "question": "How do you work under pressure during busy shifts?",
+    "questionVi": "Bạn làm việc dưới áp lực trong ca bận như thế nào?",
+    "timeLimitSeconds": 90,
+    "difficulty": "B1"
+  },
+  {
+    "id": "HO-05",
+    "industry": "hospitality",
+    "question": "What does teamwork mean in a hotel environment?",
+    "questionVi": "Teamwork có ý nghĩa gì trong môi trường khách sạn?",
+    "timeLimitSeconds": 90,
+    "difficulty": "A2–B1"
+  }
+]
