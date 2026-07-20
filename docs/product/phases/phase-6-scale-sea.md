@@ -64,7 +64,7 @@
 
 | ID | Task | Owner | Status |
 |---|---|---|---|
-| P3-T20 | Full microservices decomposition | Architect | ⬜ |
+| P3-T20 | Full microservices decomposition | Architect | ✅ |
 | P3-T21 | Multi-region MongoDB Atlas | DevOps | ⬜ |
 | P3-T22 | K8s production (multi-region) | DevOps | ⬜ |
 | P3-T23 | Self-hosted LLM fleet (vLLM) at scale | AI Dev | ⬜ |
