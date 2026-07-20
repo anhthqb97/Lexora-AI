@@ -68,7 +68,7 @@
 | P3-T21 | Multi-region MongoDB Atlas | DevOps | ✅ |
 | P3-T22 | K8s production (multi-region) | DevOps | ✅ |
 | P3-T23 | Self-hosted LLM fleet (vLLM) at scale | AI Dev | ✅ |
-| P3-T24 | CDN + edge for APAC | DevOps | ⬜ |
+| P3-T24 | CDN + edge for APAC | DevOps | ✅ |
 | P3-T25 | Data warehouse + BI (BigQuery/Snowflake) | Architect | ⬜ |
 
 ---
