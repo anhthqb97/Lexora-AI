@@ -86,7 +86,7 @@
 | P2-T29 | Email/push re-engagement campaigns | PM + Dev | ✅ |
 | P2-T30 | Advanced analytics (cohorts, funnels) | PM | ✅ |
 | P2-T31 | NPS survey in-app | PM | ✅ |
-| P2-T32 | SEO landing pages (TOEIC, Speaking keywords) | PM + Dev | ⬜ |
+| P2-T32 | SEO landing pages (TOEIC, Speaking keywords) | PM + Dev | ✅ |
 
 ---
 
