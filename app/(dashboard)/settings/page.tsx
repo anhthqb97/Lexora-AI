@@ -16,6 +16,7 @@ type Profile = {
 function ReferralSection() {
   const [inviteUrl, setInviteUrl] = useState<string | null>(null);
   const [signupCount, setSignupCount] = useState(0);
+  const [rewardsGranted, setRewardsGranted] = useState(0);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -25,6 +26,7 @@ function ReferralSection() {
         if (res.data) {
           setInviteUrl(res.data.inviteUrl);
           setSignupCount(res.data.signupCount ?? 0);
+          setRewardsGranted(res.data.rewardsGranted ?? 0);
         }
       })
       .catch(() => {});
@@ -35,7 +37,7 @@ function ReferralSection() {
   return (
     <>
       <p className="text-sm text-gray-600">
-        Đã mời: <strong>{signupCount}</strong> người
+        Đã mời: <strong>{signupCount}</strong> người · Phần thưởng: <strong>{rewardsGranted}</strong>
       </p>
       <Input value={inviteUrl} readOnly className="text-xs" />
       <Button
