@@ -77,7 +77,7 @@
 
 | ID | Task | Owner | Status |
 |---|---|---|---|
-| P3-T26 | Platform i18n framework | Dev | ⬜ |
+| P3-T26 | Platform i18n framework | Dev | ✅ |
 | P3-T27 | Japanese learning module research | PM | ⬜ |
 | P3-T28 | Korean / Chinese roadmap validation | PM | ⬜ |
 
