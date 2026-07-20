@@ -71,7 +71,7 @@
 | P2-T21 | Student assignment (speaking homework) | Dev | ✅ |
 | P2-T22 | Teacher progress dashboard | Dev | ✅ |
 | P2-T23 | Recruit 10 center pilots | PM | ✅ |
-| P2-T24 | Center onboarding playbook | PM | ⬜ |
+| P2-T24 | Center onboarding playbook | PM | ✅ |
 | P2-T25 | Kubernetes migration (if MAL > 50K) | DevOps | ⬜ |
 | P2-T26 | Self-hosted LLM production (if ADR trigger met) | AI Dev | ⬜ |
 
